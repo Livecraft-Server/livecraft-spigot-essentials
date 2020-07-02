@@ -9,6 +9,7 @@ public class Settings {
 
     public static final SettingsValue<Boolean> POKE_ENABLED = new SettingsValue<>("modules.poke.enabled", true);
     public static final SettingsPointer POKE_PLAYER_IGNORED_LIST_POINTER = new SettingsPointer("modules.poke.ignored");
+    public static final SettingsValue<Integer> POKE_COMMAND_COOLDOWN = new SettingsValue<>("modules.poke.command-cooldown", 5);
     public static final SettingsValue<Particle> POKE_PARTICLE = new SettingsValue<>("modules.poke.particle", Particle.HEART);
     public static final SettingsValue<Sound> POKE_SOUND = new SettingsValue<>("modules.poke.sound.id", Sound.ENTITY_CHICKEN_EGG);
     public static final SettingsValue<Float> POKE_SOUND_VOLUME = new SettingsValue<>("modules.poke.sound.volume", 1f);
