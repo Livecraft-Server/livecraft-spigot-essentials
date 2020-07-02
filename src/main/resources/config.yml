@@ -1,0 +1,26 @@
+misc:
+  messages:
+    unknown: "&c[*] Hmm, that command doesn't seem to exist, or is missing some arguments"
+    no-permission: "&c[*] You don't have permission to use this command"
+    info: "&a[*] {1} v&3{2} &7by Medius_Echo"
+    reload: "&a[*] All settings for &3{1} &awere reloaded"
+    player-error: "&c[*] {1} seems to be hiding, or maybe offline"
+    player-only: "&c[*] Sorry, players only"
+#
+modules:
+  poke:
+    enabled: true
+    particle: HEART
+    sound:
+      id: ENTITY_CHICKEN_EGG
+      volume: 1.0
+      pitch: 1.0
+    # How many seconds to wait before using the poke command again
+    command-cooldown: 5
+    messages:
+      success: "&a[*] You poked {1}"
+      opt-in: "&a[*] You can now be poked by {1}"
+      opt-out: "&a[*] You are now ignoring pokes from {1}"
+      ignoring: "&c[*] You are already ignoring pokes from {1}"
+      not-ignoring: "&c[*] You are not ignoring pokes from {1}"
+      cooldown: "&c[*] You're too tired to poke"
