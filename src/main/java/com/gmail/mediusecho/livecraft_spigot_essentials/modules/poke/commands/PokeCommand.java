@@ -22,6 +22,8 @@ public class PokeCommand extends CommandListener {
     public PokeCommand (final PokeModule pokeModule)
     {
         this.pokeModule = pokeModule;
+        registerCommand(new PokeIgnoreCommand(pokeModule));
+        registerCommand(new PokeUnignoreCommand(pokeModule));
     }
 
     @Context(context = "@player")
