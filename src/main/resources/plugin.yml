@@ -1,0 +1,9 @@
+name: LivecraftSpigotEssentials
+main: com.gmail.mediusecho.livecraft_spigot_essentials.LivecraftSpigotEssentials
+version: 1.0.0
+api-version: 1.14
+author: Medius_Echo
+
+commands:
+  lc:
+    description: "Main command for LivecraftSpigotEssentials"
