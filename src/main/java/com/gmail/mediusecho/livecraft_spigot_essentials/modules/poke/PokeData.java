@@ -52,6 +52,7 @@ public class PokeData {
         }
 
         ignoredPlayers.add(player);
+        saveIgnoredPlayers();
         return true;
     }
 
