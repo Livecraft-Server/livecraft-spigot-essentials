@@ -68,6 +68,10 @@ public class PokeIgnoreCommand extends CommandListener {
             }
             results.add(player.getName());
         }
+
+        if (results.isEmpty()) {
+            return Collections.singletonList("You are ignoring everyone");
+        }
         return results;
     }
 }

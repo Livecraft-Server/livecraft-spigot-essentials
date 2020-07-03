@@ -68,6 +68,10 @@ public class PokeUnignoreCommand extends CommandListener {
             }
             results.add(player.getName());
         }
+
+        if (results.isEmpty()) {
+            return Collections.singletonList("No one to unignore");
+        }
         return results;
     }
 }
