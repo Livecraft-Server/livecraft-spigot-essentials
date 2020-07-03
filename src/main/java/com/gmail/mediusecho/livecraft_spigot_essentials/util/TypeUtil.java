@@ -17,6 +17,7 @@ public class TypeUtil {
         parserMap.put(Float.class, Float::parseFloat);
         parserMap.put(Double.class, Double::parseDouble);
         parserMap.put(Integer.class, Integer::parseInt);
+        parserMap.put(String.class, String::valueOf);
         parserMap.put(Particle.class, Particle::valueOf);
         parserMap.put(Sound.class, Sound::valueOf);
     }
