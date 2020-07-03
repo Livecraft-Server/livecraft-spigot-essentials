@@ -5,6 +5,12 @@ import org.jetbrains.annotations.NotNull;
 
 public enum Permission {
 
+    /** Emote **/
+    EMOTE_CHAT ("modules.emote.chat"),
+    EMOTE_SIGNS ("modules.emote.signs"),
+    EMOTE_ANVIL ("modules.emote.anvil"),
+    EMOTE_COMMAND ("modules.emote.command"),
+
     /** Poke **/
     POKE ("modules.poke");
 
