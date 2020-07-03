@@ -114,7 +114,7 @@ public class EmoteModule extends Module {
         Player player = event.getPlayer();
         if (Permission.EMOTE_SIGNS.hasPermission(player))
         {
-            for (int i = 0; i <4; i++) {
+            for (int i = 0; i < 4; i++) {
                 event.setLine(i, parseEmotes(event.getLine(i)));
             }
         }
