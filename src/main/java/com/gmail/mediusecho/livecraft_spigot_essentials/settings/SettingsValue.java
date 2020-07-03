@@ -2,6 +2,7 @@ package com.gmail.mediusecho.livecraft_spigot_essentials.settings;
 
 import com.gmail.mediusecho.livecraft_spigot_essentials.LivecraftSpigotEssentials;
 import com.gmail.mediusecho.livecraft_spigot_essentials.util.TypeUtil;
+import org.jetbrains.annotations.NotNull;
 
 public class SettingsValue<T> extends SettingsPointer {
 
@@ -9,7 +10,7 @@ public class SettingsValue<T> extends SettingsPointer {
     private final T defaultValue;
     private final Class<T> type;
 
-    public SettingsValue (final String path, T defaultValue)
+    public SettingsValue (final String path, @NotNull T defaultValue)
     {
         super(path);
         this.defaultValue = defaultValue;
@@ -19,9 +20,6 @@ public class SettingsValue<T> extends SettingsPointer {
     public T getValue ()
     {
         String value = plugin.getConfig().getString(path);
-        if (value != null) {
-            return (T)TypeUtil.parseType(value, type);
-        }
-        return defaultValue;
+        return (T)TypeUtil.parseType(value, type, defaultValue);
     }
 }
