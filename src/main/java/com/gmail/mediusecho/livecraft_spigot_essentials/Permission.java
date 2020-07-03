@@ -11,6 +11,12 @@ public enum Permission {
     EMOTE_ANVIL ("modules.emote.anvil"),
     EMOTE_COMMAND ("modules.emote.command"),
 
+    /** Ping **/
+    PING_CHAT ("modules.ping"),
+    PING_CHAT_RECEIVE_GROUP ("modules.ping.receive.group"),
+    PING_CHAT_NOTIFY_GROUP ("modules.ping.notify.group"),
+
+
     /** Poke **/
     POKE ("modules.poke");
 
