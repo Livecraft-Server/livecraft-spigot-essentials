@@ -14,11 +14,12 @@ public enum Permission {
     /** Poke **/
     POKE ("modules.poke");
 
+    private final String ROOT = "lce.";
     private final String permission;
 
     private Permission (final String permission)
     {
-        this.permission = permission;
+        this.permission = ROOT + permission;
     }
 
     /**
