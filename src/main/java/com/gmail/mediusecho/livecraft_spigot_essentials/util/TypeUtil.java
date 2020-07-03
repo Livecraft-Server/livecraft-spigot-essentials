@@ -21,12 +21,21 @@ public class TypeUtil {
         parserMap.put(Sound.class, Sound::valueOf);
     }
 
-    public static Object parseType (String value, Class<?> clazz)
+    public static Object parseType (String value, Class<?> clazz, Object def)
     {
-        Function<String, ?> func = parserMap.get(clazz);
-        if (func != null) {
-            return func.apply(value);
+        if (value == null) {
+            return def;
         }
-        throw new UnsupportedOperationException("Cannot parse the string: " + value);
+
+        Function<String, ?> func = parserMap.get(clazz);
+        if (func == null) {
+            return def;
+        }
+
+        try {
+            return func.apply(value);
+        } catch (Exception e) {
+            return def;
+        }
     }
 }
