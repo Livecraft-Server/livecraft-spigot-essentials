@@ -42,6 +42,7 @@ public class LivecraftSpigotEssentials extends JavaPlugin implements LanguagePro
         playerConfigMap = new HashMap<>();
         moduleList = new ArrayList<>();
         moduleList.add(new PokeModule(this));
+        moduleList.add(new EmoteModule(this));
 
         for (Module m : moduleList) {
             m.reload();
