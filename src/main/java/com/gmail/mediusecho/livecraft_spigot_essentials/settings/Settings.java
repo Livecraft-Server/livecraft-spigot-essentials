@@ -20,4 +20,18 @@ public class Settings {
     public static final SettingsValue<Boolean> EMOTE_SIGNS_ENABLED = new SettingsValue<>("modules.emote.signs", true);
     public static final SettingsValue<Boolean> EMOTE_ANVILS_ENABLED = new SettingsValue<>("modules.emote.anvils", true);
     public static final SettingsPointer EMOTE_COMMAND_WHITELIST_POINTER = new SettingsPointer("modules.emote.commands.whitelisted-commands");
+
+    public static final SettingsValue<Boolean> PING_ENABLED = new SettingsValue<>("modules.ping.enabled", true);
+    public static final SettingsValue<Boolean> PING_COMMANDS_ENABLED = new SettingsValue<>("modules.ping.commands.enabled", true);
+    public static final SettingsValue<Boolean> PING_SEARCH_NICKNAMES = new SettingsValue<>("modules.ping.include-nicknames", true);
+    public static final SettingsValue<Particle> PING_PARTICLE = new SettingsValue<>("modules.ping.particle", Particle.VILLAGER_HAPPY);
+    public static final SettingsValue<Sound> PING_SOUND = new SettingsValue<>("modules.ping.sound.id", Sound.BLOCK_NOTE_BLOCK_PLING);
+    public static final SettingsValue<Float> PING_SOUND_VOLUME = new SettingsValue<>("modules.ping.sound.volume", 0.3f);
+    public static final SettingsValue<Float> PING_SOUND_PITCH = new SettingsValue<>("modules.ping.sound.pitch", 2.0f);
+    public static final SettingsValue<Boolean> PING_GROUPS_ENABLED = new SettingsValue<>("modules.ping.groups.enabled", true);
+    public static final SettingsPointer PING_GROUPS_POINTER = new SettingsPointer("modules.ping.groups.groups");
+    public static final SettingsValue<String> PING_PLAYER_HIGHLIGHT = new SettingsValue<>("modules.ping.player-highlight", "\"&3{1}&r\"");
+    public static final SettingsValue<Boolean> PING_RANDOM_GROUP_ENABLED = new SettingsValue<>("modules.ping.special-pings.random.enabled", true);
+    public static final SettingsPointer PING_RANDOM_GROUP_POINTER = new SettingsPointer("modules.ping.special-pings.random");
+    public static final SettingsPointer PING_WHITELISTED_COMMANDS_POINTER = new SettingsPointer("modules.ping.commands.whitelist");
 }

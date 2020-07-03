@@ -24,6 +24,7 @@ modules:
       ignoring: "&c[*] You are already ignoring pokes from {1}"
       not-ignoring: "&c[*] You are not ignoring pokes from {1}"
       cooldown: "&c[*] You're too tired to poke"
+  #
   emote:
     enable: true
     commands:
@@ -196,3 +197,43 @@ modules:
       underline: "\u00A7n"
       italic: "\u00A7o"
       reset: "\u00A7r"
+  #
+  ping:
+    enabled: true
+    player-highlight: "&3{1}&r"
+    include-nicknames: true
+    sound:
+      id: BLOCK_NOTE_BLOCK_BIT
+      volume: 1.0
+      pitch: 1.0
+    particle: VILLAGER_HAPPY
+    special-pings:
+      random:
+        enabled: true
+        highlight: "&5{1}&r"
+        aliases:
+          - someone
+          - anyone
+    groups:
+      enabled: true
+      groups:
+        staff:
+          highlight: "&c{1}&r"
+          aliases:
+            - staff
+        admin:
+          highlight: "&c{1}&r"
+          aliases:
+            - admin
+            - administrator
+        global:
+          highlight: "&c{1}&r"
+          aliases:
+            - everyone
+            - here
+    commands:
+      enabled: true
+      whitelist:
+        - "/say"
+        - "/bc"
+        - "/a"
