@@ -82,7 +82,7 @@ public class EmoteModule extends Module {
         }
 
         Player player = event.getPlayer();
-        if (Permission.EMOTE_CHAT.hasPermission(player))
+        if (Permission.EMOTE_COMMAND.hasPermission(player))
         {
             String command = event.getMessage().split(" ", 2)[0];
             if (whitelistedCommands.contains(command)) {
