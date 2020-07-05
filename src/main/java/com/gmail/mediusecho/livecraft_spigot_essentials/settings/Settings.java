@@ -36,4 +36,11 @@ public class Settings {
     public static final SettingsPointer PING_WHITELISTED_COMMANDS_POINTER = new SettingsPointer("modules.ping.commands.whitelist");
 
     public static final SettingsValue<Boolean> BOOK_ENABLED = new SettingsValue<>("modules.book.enabled", true);
+
+    public static final SettingsValue<Boolean> MARKDOWN_ENABLED = new SettingsValue<>("modules.markdown.enabled", true);
+    public static final SettingsValue<Boolean> MARKDOWN_COMMANDS_ENABLED = new SettingsValue<>("modules.markdown.commands.enabled", true);
+    public static final SettingsValue<Boolean> MARKDOWN_SIGNS_ENABLED = new SettingsValue<>("modules.markdown.signs", true);
+    public static final SettingsValue<Boolean> MARKDOWN_ANVILS_ENABLED = new SettingsValue<>("modules.markdown.anvils", true);
+    public static final SettingsPointer MARKDOWN_WHITELISTED_COMMANDS_POINTER = new SettingsPointer("modules.markdown.commands.whitelisted-commands");
+    public static final SettingsPointer MARKDOWN_FORMATS_POINTER = new SettingsPointer("modules.markdown.formats");
 }
