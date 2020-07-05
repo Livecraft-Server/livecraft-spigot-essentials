@@ -16,6 +16,11 @@ public enum Permission {
     PING_CHAT_RECEIVE_GROUP ("modules.ping.receive.group"),
     PING_CHAT_NOTIFY_GROUP ("modules.ping.notify.group"),
 
+    /** Markdown **/
+    MARKDOWN_CHAT ("modules.markdown.chat"),
+    MARKDOWN_SIGNS ("modules.markdown.signs"),
+    MARKDOWN_ANVILS ("modules.markdown.anvil"),
+    MARKDOWN_COMMANDS ("modules.markdown.command"),
 
     /** Poke **/
     POKE ("modules.poke");
