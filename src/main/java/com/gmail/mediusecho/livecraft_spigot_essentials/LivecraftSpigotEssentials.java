@@ -6,6 +6,11 @@ import com.gmail.mediusecho.fusion.properties.LangKey;
 import com.gmail.mediusecho.livecraft_spigot_essentials.commands.LCMainCommand;
 import com.gmail.mediusecho.livecraft_spigot_essentials.config.CustomConfig;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.Module;
+import com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.BookContext;
+import com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.BookModule;
+import com.gmail.mediusecho.livecraft_spigot_essentials.modules.emote.EmoteModule;
+import com.gmail.mediusecho.livecraft_spigot_essentials.modules.markdown.MarkdownModule;
+import com.gmail.mediusecho.livecraft_spigot_essentials.modules.ping.PingModule;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.poke.PokeModule;
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteStreams;
@@ -29,6 +34,10 @@ public class LivecraftSpigotEssentials extends JavaPlugin implements LanguagePro
     private Map<UUID, CustomConfig> playerConfigMap;
     private List<Module> moduleList;
 
+    private PingModule pingModule;
+    private EmoteModule emoteModule;
+    private BookModule bookModule;
+
     private LCMainCommand mainCommand;
 
     @Override
@@ -38,12 +47,17 @@ public class LivecraftSpigotEssentials extends JavaPlugin implements LanguagePro
 
         instance = this;
         mainCommand = new LCMainCommand(this);
+        pingModule = new PingModule(this);
+        emoteModule = new EmoteModule(this);
+        bookModule = new BookModule(this, emoteModule);
 
         playerConfigMap = new HashMap<>();
         moduleList = new ArrayList<>();
         moduleList.add(new PokeModule(this));
-        moduleList.add(new EmoteModule(this));
-        moduleList.add(new PingModule(this));
+        moduleList.add(new MarkdownModule(this));
+        moduleList.add(emoteModule);
+        moduleList.add(pingModule);
+        moduleList.add(bookModule);
 
         for (Module m : moduleList) {
             m.reload();
@@ -55,6 +69,7 @@ public class LivecraftSpigotEssentials extends JavaPlugin implements LanguagePro
 
         BukkitCommandFramework bukkitCommandFramework = new BukkitCommandFramework(this, this);
         bukkitCommandFramework.registerMainCommand(mainCommand);
+        bukkitCommandFramework.registerContext("@book", new BookContext(bookModule));
         bukkitCommandFramework.registerDefaultLangKey(LangKey.UNKNOWN_COMMAND, Lang.UNKNOWN_COMMAND.key);
         bukkitCommandFramework.registerDefaultLangKey(LangKey.NO_PERMISSION, Lang.NO_PERMISSION.key);
         bukkitCommandFramework.registerDefaultLangKey(LangKey.PLAYER_ONLY, Lang.PLAYER_ONLY.key);
@@ -84,7 +99,8 @@ public class LivecraftSpigotEssentials extends JavaPlugin implements LanguagePro
         // Ping message
         if (subChannel.equals("ping"))
         {
-
+            pingModule.parseNetworkPings(in.readUTF());
+            return;
         }
 
         // Player is teleporting somewhere in this server
