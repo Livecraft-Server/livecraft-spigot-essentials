@@ -8,8 +8,8 @@ public enum Permission {
     /** Emote **/
     EMOTE_CHAT ("modules.emote.chat"),
     EMOTE_SIGNS ("modules.emote.signs"),
-    EMOTE_ANVIL ("modules.emote.anvil"),
-    EMOTE_COMMAND ("modules.emote.command"),
+    EMOTE_ANVILS ("modules.emote.anvil"),
+    EMOTE_COMMANDS ("modules.emote.command"),
 
     /** Ping **/
     PING_CHAT ("modules.ping"),
