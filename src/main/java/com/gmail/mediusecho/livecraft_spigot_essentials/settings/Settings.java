@@ -34,4 +34,6 @@ public class Settings {
     public static final SettingsValue<Boolean> PING_RANDOM_GROUP_ENABLED = new SettingsValue<>("modules.ping.special-pings.random.enabled", true);
     public static final SettingsPointer PING_RANDOM_GROUP_POINTER = new SettingsPointer("modules.ping.special-pings.random");
     public static final SettingsPointer PING_WHITELISTED_COMMANDS_POINTER = new SettingsPointer("modules.ping.commands.whitelist");
+
+    public static final SettingsValue<Boolean> BOOK_ENABLED = new SettingsValue<>("modules.book.enabled", true);
 }
