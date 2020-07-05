@@ -187,6 +187,18 @@ public class PingModule extends Module {
         return string;
     }
 
+    public void parseNetworkPings (@NotNull String players)
+    {
+        String[] playerNames = players.split(",");
+        for (String playerName : playerNames)
+        {
+            Player player = Bukkit.getPlayer(playerName);
+            if (player != null && player.isOnline()) {
+                pingPlayer(player);
+            }
+        }
+    }
+
     private void pingPlayer (@NotNull Player player)
     {
         Location location = player.getLocation();
