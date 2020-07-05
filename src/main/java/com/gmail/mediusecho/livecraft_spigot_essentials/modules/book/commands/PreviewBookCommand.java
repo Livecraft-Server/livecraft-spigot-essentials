@@ -23,13 +23,6 @@ import java.util.List;
 @Command(argument = "preview")
 public class PreviewBookCommand extends CommandListener {
 
-    private final BookModule bookModule;
-
-    public PreviewBookCommand (final BookModule bookModule)
-    {
-        this.bookModule = bookModule;
-    }
-
     @Default
     @Permission(permission = "lce.command.modules.book.preview")
     @SenderPolicy(Sender.PLAYER_ONLY)
