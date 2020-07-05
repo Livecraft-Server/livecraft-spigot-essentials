@@ -43,9 +43,26 @@ public enum Lang {
     }
 
     @NotNull
-    public String get ()
+    public String get () {
+        return ChatColor.translateAlternateColorCodes('&', getValue());
+    }
+
+    public String get (@NotNull Object... parameters)
     {
-        String s = plugin.getConfig().getString(key, "");
-        return ChatColor.translateAlternateColorCodes('&', s);
+        // Return the un-parsed value if the parameters length is not even
+        if ((parameters.length & 1) != 0) {
+            LivecraftSpigotEssentials.logStatic("get parameters are not the correct length " + parameters.length);
+            return get();
+        }
+
+        String value = getValue();
+        for (int i = 0; i < parameters.length; i+=2) {
+            value = value.replace(parameters[i].toString(), parameters[i+1].toString());
+        }
+        return ChatColor.translateAlternateColorCodes('&', value);
+    }
+
+    private String getValue () {
+        return plugin.getConfig().getString(key, "");
     }
 }
