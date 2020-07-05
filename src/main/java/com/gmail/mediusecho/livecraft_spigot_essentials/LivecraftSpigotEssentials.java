@@ -25,6 +25,7 @@ import com.gmail.mediusecho.fusion.LanguageProvider;
 import com.gmail.mediusecho.fusion.properties.LangKey;
 import com.gmail.mediusecho.livecraft_spigot_essentials.commands.LCMainCommand;
 import com.gmail.mediusecho.livecraft_spigot_essentials.config.CustomConfig;
+import com.gmail.mediusecho.livecraft_spigot_essentials.listeners.ConnectionListener;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.Module;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.BookContext;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.BookModule;
@@ -32,6 +33,8 @@ import com.gmail.mediusecho.livecraft_spigot_essentials.modules.emote.EmoteModul
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.markdown.MarkdownModule;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.ping.PingModule;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.poke.PokeModule;
+import com.gmail.mediusecho.livecraft_spigot_essentials.packet.PlayerLocationPacket;
+import com.gmail.mediusecho.livecraft_spigot_essentials.packet.PlayerTeleportPacket;
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteStreams;
 import org.bukkit.Bukkit;
@@ -59,6 +62,7 @@ public class LivecraftSpigotEssentials extends JavaPlugin implements LanguagePro
     private BookModule bookModule;
 
     private LCMainCommand mainCommand;
+    private ConnectionListener connectionListener;
 
     @Override
     public void onEnable()
@@ -82,6 +86,8 @@ public class LivecraftSpigotEssentials extends JavaPlugin implements LanguagePro
         for (Module m : moduleList) {
             m.reload();
         }
+
+        connectionListener = new ConnectionListener(this);
 
         Messenger messenger = getServer().getMessenger();
         messenger.registerIncomingPluginChannel(this, "lce:message", this);
@@ -126,11 +132,43 @@ public class LivecraftSpigotEssentials extends JavaPlugin implements LanguagePro
         // Player is teleporting somewhere in this server
         if (subChannel.equals("teleport"))
         {
+            PlayerTeleportPacket playerTeleportPacket = new PlayerTeleportPacket(in);
+            Location location = playerTeleportPacket.getLocation();
+            if (location == null) {
+                return;
+            }
 
+            // Add this location to the pending teleport requests for when
+            // the player joins this server.
+            if (playerTeleportPacket.isPendingTeleport())
+            {
+                connectionListener.addPendingPlayerTeleport(playerTeleportPacket.getPlayerId(), location);
+                return;
+            }
+
+            // Teleport the player since they're connected to this server
+            Player p = playerTeleportPacket.getPlayer();
+            if (p != null) {
+                p.teleport(location);
+            }
+            return;
         }
 
         // The network is requesting the players location in the server
         if (subChannel.equals("request-location"))
+        {
+            String requestId = in.readUTF();
+            String playerId = in.readUTF();
+            Player p = Bukkit.getPlayer(UUID.fromString(playerId));
+
+            if (p == null || !p.isOnline()) {
+                return;
+            }
+
+            PlayerLocationPacket playerLocationPacket = new PlayerLocationPacket(p, requestId);
+            p.sendPluginMessage(this, "lce:message", playerLocationPacket.toByteArray());
+            return;
+        }
         {
 
         }
