@@ -23,7 +23,6 @@ import com.gmail.mediusecho.livecraft_spigot_essentials.LivecraftSpigotEssential
 import com.gmail.mediusecho.livecraft_spigot_essentials.Permission;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.Module;
 import com.gmail.mediusecho.livecraft_spigot_essentials.settings.Settings;
-import com.gmail.mediusecho.livecraft_spigot_essentials.settings.SettingsValue;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -103,7 +102,7 @@ public class EmoteModule extends Module {
         }
 
         Player player = event.getPlayer();
-        if (Permission.EMOTE_COMMAND.hasPermission(player))
+        if (Permission.EMOTE_COMMANDS.hasPermission(player))
         {
             String command = event.getMessage().split(" ", 2)[0];
             if (whitelistedCommands.contains(command)) {
@@ -173,7 +172,7 @@ public class EmoteModule extends Module {
         }
 
         Player player = (Player)event.getWhoClicked();
-        if (!Permission.EMOTE_ANVIL.hasPermission(player)) {
+        if (!Permission.EMOTE_ANVILS.hasPermission(player)) {
             return;
         }
 
