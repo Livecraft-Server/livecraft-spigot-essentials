@@ -19,7 +19,20 @@ public enum Lang {
     POKE_OPT_OUT ("modules.poke.messages.opt-out"),
     POKE_IGNORING ("modules.poke.messages.ignoring"),
     POKE_NOT_IGNORING ("modules.poke.messages.not-ignoring"),
-    POKE_COOLDOWN ("modules.poke.messages.cooldown");
+    POKE_COOLDOWN ("modules.poke.messages.cooldown"),
+
+    /** Book **/
+    BOOK_UPDATE_ERROR ("modules.book.messages.update-error"),
+    BOOK_SAVE_ERROR ("modules.book.messages.save-error"),
+    BOOK_SAVE_SUCCESS ("modules.book.messages.save-success"),
+    BOOK_UPDATE_SUCCESS ("modules.book.messages.update-success"),
+    BOOK_PARSE_ERROR ("modules.book.messages.parse-error"),
+    BOOK_PARSED ("modules.book.messages.parsed"),
+    BOOK_MISSING ("modules.book.messages.missing"),
+    BOOK_CONFIRM ("modules.book.messages.confirm"),
+    BOOK_DELETED ("modules.book.messages.delete"),
+    BOOK_EXISTS ("modules.book.messages.exists");
+
 
     private final LivecraftSpigotEssentials plugin = LivecraftSpigotEssentials.instance;
     public final String key;
