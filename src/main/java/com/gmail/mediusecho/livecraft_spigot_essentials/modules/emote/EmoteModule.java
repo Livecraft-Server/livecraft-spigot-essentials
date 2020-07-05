@@ -76,8 +76,10 @@ public class EmoteModule extends Module {
         for (String key : keys)
         {
             String emote = config.getString("modules.emote.emotes." + key);
-            if (emote != null) {
-                emoteMap.put(":" + key + ":", emote);
+            if (emote != null)
+            {
+                String e = ChatColor.translateAlternateColorCodes('&', emote);
+                emoteMap.put(":" + key + ":", e);
             }
         }
 
