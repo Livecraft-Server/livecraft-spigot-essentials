@@ -237,3 +237,17 @@ modules:
         - "/say"
         - "/bc"
         - "/a"
+  book:
+    enabled: true
+    messages:
+      update-error: "&c[*] You must be holding a writable book to save"
+      save-error: "&c[*] There was an issue saving this book, please try again"
+      save-success: "&a[*] Saved {1} book successfully"
+      update-success: "&a[*] Updated rule book"
+      parse-error: "&c[*] You must be holding a Book & Quill to parse"
+      parsed: "&a[*] Book was updated"
+      missing: "&c[*] Unable to find the book '&7{1}&c'"
+      confirm: "&a[*] type &7/lc book save {1} &aagain to save this book"
+      delete: "&a[*] Book '&7{1}&a' was deleted"
+      exists: "&c[*] The book '&7{1}&c' already exists"
+      open-permission: "&c[*] You don't have permission to open this book"
