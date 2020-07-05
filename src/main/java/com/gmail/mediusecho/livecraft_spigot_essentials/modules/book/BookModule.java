@@ -4,6 +4,7 @@ import com.gmail.mediusecho.livecraft_spigot_essentials.LivecraftSpigotEssential
 import com.gmail.mediusecho.livecraft_spigot_essentials.config.CustomConfig;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.Module;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.commands.BookCommand;
+import com.gmail.mediusecho.livecraft_spigot_essentials.modules.emote.EmoteModule;
 import com.gmail.mediusecho.livecraft_spigot_essentials.settings.Settings;
 import com.gmail.mediusecho.livecraft_spigot_essentials.util.ResourceUtil;
 import org.bukkit.ChatColor;
@@ -20,13 +21,13 @@ public class BookModule extends Module {
     private Map<String, ItemStack> bookMap;
     private Map<String, CustomConfig> bookConfigMap;
 
-    public BookModule(LivecraftSpigotEssentials plugin)
+    public BookModule(LivecraftSpigotEssentials plugin, EmoteModule emoteModule)
     {
         super(plugin, Settings.BOOK_ENABLED);
         bookMap = new HashMap<>();
         bookConfigMap = new HashMap<>();
 
-        plugin.getMainCommand().registerCommand(new BookCommand(this));
+        plugin.getMainCommand().registerCommand(new BookCommand(this, emoteModule));
     }
 
     @Override
