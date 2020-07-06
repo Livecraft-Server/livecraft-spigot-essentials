@@ -8,12 +8,25 @@ misc:
     player-only: "&c[*] Sorry, players only"
 #
 modules:
+  #
   motd:
     enabled: true
     line-width: 250
     fallback-motd: "&5❤ &aLivecraft: Online Since 2011 &5❤/n&8- &71.14.4 &8-"
     motds:
       - "&5❤ &71.14.4 - &aLivecraft: Online Since 2011 &5❤/n&fWelcome back &3%player%&f!"
+  #
+  broadcast:
+    enabled: true
+    # How long to wait (in minutes) before broadcasting the next message
+    interval: 10
+    messages:
+      - "&a[*] We have a Discord server! https://discord.gg/hQ98qwn"
+      - "&a[*] Don't forget to read the /rules!"
+      - "&a[*] We have /emotes!"
+      - "&a[*] Use @ to ping players!"
+      - "&a[*] Sneak right click on a villager to carry them!"
+  #
   poke:
     enabled: true
     particle: HEART

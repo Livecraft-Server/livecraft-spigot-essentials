@@ -73,4 +73,9 @@ public class Settings {
     public static final SettingsValue<Integer> MOTD_LINE_WIDTH = new SettingsValue<>("modules.motd.line-width", 250);
     public static final SettingsValue<String> MOTD_FALLBACK_MOTD = new SettingsValue<>("modules.motd.fallback-motd", "Default MOTD");
     public static final SettingsPointer MOTD_LIST_POINTER = new SettingsPointer("modules.motd.motds");
+
+    /** Broadcase **/
+    public static final SettingsValue<Boolean> BROADCAST_ENABLED = new SettingsValue<>("modules.broadcast.enabled", true);
+    public static final SettingsValue<Integer> BROADCAST_INTERVAL = new SettingsValue<>("modules.broadcast.interval", 10);
+    public static final SettingsPointer BROADCAST_MESSAGE_POINTER = new SettingsPointer("modules.broadcast.messages");
 }
