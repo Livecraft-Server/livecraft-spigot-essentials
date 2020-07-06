@@ -31,6 +31,7 @@ import com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.BookContext
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.BookModule;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.emote.EmoteModule;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.markdown.MarkdownModule;
+import com.gmail.mediusecho.livecraft_spigot_essentials.modules.motd.MotdModule;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.ping.PingModule;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.poke.PokeModule;
 import com.gmail.mediusecho.livecraft_spigot_essentials.packet.PlayerLocationPacket;
@@ -79,6 +80,7 @@ public class LivecraftSpigotEssentials extends JavaPlugin implements LanguagePro
         moduleList = new ArrayList<>();
         moduleList.add(new PokeModule(this));
         moduleList.add(new MarkdownModule(this));
+        moduleList.add(new MotdModule(this));
         moduleList.add(emoteModule);
         moduleList.add(pingModule);
         moduleList.add(bookModule);

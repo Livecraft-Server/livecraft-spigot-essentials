@@ -26,6 +26,7 @@ public class Settings {
 
     public static final SettingsValue<Boolean> DEBUGGING = new SettingsValue<>("misc.debugging", false);
 
+    /** Poke **/
     public static final SettingsValue<Boolean> POKE_ENABLED = new SettingsValue<>("modules.poke.enabled", true);
     public static final SettingsPointer POKE_PLAYER_IGNORED_LIST_POINTER = new SettingsPointer("modules.poke.ignored");
     public static final SettingsValue<Integer> POKE_COMMAND_COOLDOWN = new SettingsValue<>("modules.poke.command-cooldown", 5);
@@ -34,12 +35,14 @@ public class Settings {
     public static final SettingsValue<Float> POKE_SOUND_VOLUME = new SettingsValue<>("modules.poke.sound.volume", 1f);
     public static final SettingsValue<Float> POKE_SOUND_PITCH = new SettingsValue<>("modules.poke.sound.pitch", 1f);
 
+    /** Emote **/
     public static final SettingsValue<Boolean> EMOTE_ENABLED = new SettingsValue<>("modules.emote.enabled", true);
     public static final SettingsValue<Boolean> EMOTE_COMMANDS_ENABLED = new SettingsValue<>("modules.emote.commands.enabled", true);
     public static final SettingsValue<Boolean> EMOTE_SIGNS_ENABLED = new SettingsValue<>("modules.emote.signs", true);
     public static final SettingsValue<Boolean> EMOTE_ANVILS_ENABLED = new SettingsValue<>("modules.emote.anvils", true);
     public static final SettingsPointer EMOTE_COMMAND_WHITELIST_POINTER = new SettingsPointer("modules.emote.commands.whitelisted-commands");
 
+    /** Ping **/
     public static final SettingsValue<Boolean> PING_ENABLED = new SettingsValue<>("modules.ping.enabled", true);
     public static final SettingsValue<Boolean> PING_COMMANDS_ENABLED = new SettingsValue<>("modules.ping.commands.enabled", true);
     public static final SettingsValue<Boolean> PING_SEARCH_NICKNAMES = new SettingsValue<>("modules.ping.include-nicknames", true);
@@ -54,12 +57,20 @@ public class Settings {
     public static final SettingsPointer PING_RANDOM_GROUP_POINTER = new SettingsPointer("modules.ping.special-pings.random");
     public static final SettingsPointer PING_WHITELISTED_COMMANDS_POINTER = new SettingsPointer("modules.ping.commands.whitelist");
 
+    /** Book **/
     public static final SettingsValue<Boolean> BOOK_ENABLED = new SettingsValue<>("modules.book.enabled", true);
 
+    /** Markdown **/
     public static final SettingsValue<Boolean> MARKDOWN_ENABLED = new SettingsValue<>("modules.markdown.enabled", true);
     public static final SettingsValue<Boolean> MARKDOWN_COMMANDS_ENABLED = new SettingsValue<>("modules.markdown.commands.enabled", true);
     public static final SettingsValue<Boolean> MARKDOWN_SIGNS_ENABLED = new SettingsValue<>("modules.markdown.signs", true);
     public static final SettingsValue<Boolean> MARKDOWN_ANVILS_ENABLED = new SettingsValue<>("modules.markdown.anvils", true);
     public static final SettingsPointer MARKDOWN_WHITELISTED_COMMANDS_POINTER = new SettingsPointer("modules.markdown.commands.whitelisted-commands");
     public static final SettingsPointer MARKDOWN_FORMATS_POINTER = new SettingsPointer("modules.markdown.formats");
+
+    /** Motd **/
+    public static final SettingsValue<Boolean> MOTD_ENABLED = new SettingsValue<>("modules.motd.enabled", true);
+    public static final SettingsValue<Integer> MOTD_LINE_WIDTH = new SettingsValue<>("modules.motd.line-width", 250);
+    public static final SettingsValue<String> MOTD_FALLBACK_MOTD = new SettingsValue<>("modules.motd.fallback-motd", "Default MOTD");
+    public static final SettingsPointer MOTD_LIST_POINTER = new SettingsPointer("modules.motd.motds");
 }
