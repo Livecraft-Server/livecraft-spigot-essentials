@@ -50,8 +50,12 @@ public enum Lang {
     BOOK_MISSING ("modules.book.messages.missing"),
     BOOK_CONFIRM ("modules.book.messages.confirm"),
     BOOK_DELETED ("modules.book.messages.delete"),
-    BOOK_EXISTS ("modules.book.messages.exists");
+    BOOK_EXISTS ("modules.book.messages.exists"),
 
+    /** Sleepvote **/
+    SLEEPVOTE_SLEEPING ("modules.sleepvote.messages.sleeping"),
+    SLEEPVOTE_WAKING ("modules.sleepvote.messages.waking"),
+    SLEEPVOTE_THUNDER ("modules.sleepvote.messages.thunder");
 
     private final LivecraftSpigotEssentials plugin = LivecraftSpigotEssentials.instance;
     public final String key;

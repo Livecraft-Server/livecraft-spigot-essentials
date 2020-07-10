@@ -78,4 +78,12 @@ public class Settings {
     public static final SettingsValue<Boolean> BROADCAST_ENABLED = new SettingsValue<>("modules.broadcast.enabled", true);
     public static final SettingsValue<Integer> BROADCAST_INTERVAL = new SettingsValue<>("modules.broadcast.interval", 10);
     public static final SettingsPointer BROADCAST_MESSAGE_POINTER = new SettingsPointer("modules.broadcast.messages");
+
+    /** Sleepvote **/
+    public static final SettingsValue<Boolean> SLEEPVOTE_ENABLED = new SettingsValue<>("modules.sleepvote.enabled", true);
+    public static final SettingsPointer SLEEPVOTE_WORLDS_POINTER = new SettingsPointer("modules.sleepvote.worlds");
+    public static final SettingsValue<Float> SLEEPVOTE_SLEEP_PERCENTAGE = new SettingsValue<>("modules.sleepvote.sleep-percentage", 0.5f);
+    public static final SettingsValue<Boolean> SLEEPVOTE_IGNORE_STAFF = new SettingsValue<>("modules.sleepvote.ignore-staff", false);
+    public static final SettingsValue<Boolean> SLEEPVOTE_CHECK_WEATHER = new SettingsValue<>("modules.sleepvote.check-weather", true);
+    public static final SettingsValue<Boolean> SLEEPVOTE_BROADCAST_TO_SLEEPING_PLAYERS_ONLY = new SettingsValue<>("modules.sleepvote.broadcast-wake-up-to-sleeping-players-only", false);
 }

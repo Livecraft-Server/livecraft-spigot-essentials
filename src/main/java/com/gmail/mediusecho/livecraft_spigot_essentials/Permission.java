@@ -41,6 +41,9 @@ public enum Permission {
     MARKDOWN_ANVILS ("modules.markdown.anvil"),
     MARKDOWN_COMMANDS ("modules.markdown.command"),
 
+    /** Sleepvote **/
+    SLEEPVOTE_IGNORE ("modules.sleepvote.ignore"),
+
     /** Poke **/
     POKE ("modules.poke");
 

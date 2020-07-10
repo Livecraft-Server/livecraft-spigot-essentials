@@ -314,4 +314,24 @@ modules:
       confirm: "&a[*] type &7/lc book save {1} &aagain to save this book"
       delete: "&a[*] Book '&7{1}&a' was deleted"
       exists: "&c[*] The book '&7{1}&c' already exists"
-      open-permission: "&c[*] You don't have permission to open this book"
+      open-permission: "&c[*] You don't have permission to open this book"  #
+  sleepvote:
+    enabled: true
+    worlds:
+      - livecraft
+      - livecraft_1_14
+    # Percentage of players needed in a given world to skip the night
+    sleep-percentage: 0.5
+    # Players with the permission 'lce.sleepvote.ignore' will not count towards the sleep goal
+    ignore-staff: false
+    # Disable this if you want sleepvote to work in thunderstorms
+    check-weather: true
+    # Broadcast the wake up message only to players that were sleeping in a given world
+    broadcast-wake-up-to-sleeping-players-only: false
+    messages:
+      # {1}: The name of the player
+      # {2}: How many are currently sleeping
+      # {3}: How many need to sleep
+      sleeping: "&a[*] {1} &awants to sleep! &7(&a{2}/{3}&7)"
+      waking: "&a[*] Wakey wakey, eggs and bakey"
+      thunder: "&a[*] {1} &awants to skip the storm! &7(&a{2}/{3}&7)"
