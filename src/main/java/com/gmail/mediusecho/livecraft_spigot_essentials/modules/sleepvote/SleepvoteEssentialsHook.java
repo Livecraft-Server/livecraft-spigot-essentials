@@ -17,7 +17,7 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.gmail.mediusecho.livecraft_spigot_essentials.modules.Sleepvote;
+package com.gmail.mediusecho.livecraft_spigot_essentials.modules.sleepvote;
 
 import com.earth2me.essentials.Essentials;
 import net.ess3.api.events.AfkStatusChangeEvent;

@@ -27,7 +27,7 @@ import com.gmail.mediusecho.livecraft_spigot_essentials.commands.LCMainCommand;
 import com.gmail.mediusecho.livecraft_spigot_essentials.config.CustomConfig;
 import com.gmail.mediusecho.livecraft_spigot_essentials.listeners.ConnectionListener;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.Module;
-import com.gmail.mediusecho.livecraft_spigot_essentials.modules.Sleepvote.SleepvoteModule;
+import com.gmail.mediusecho.livecraft_spigot_essentials.modules.sleepvote.SleepvoteModule;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.BookContext;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.BookModule;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.emote.EmoteModule;
