@@ -9,12 +9,22 @@ misc:
 #
 modules:
   #
-  motd:
+  book:
     enabled: true
-    line-width: 250
-    fallback-motd: "&5❤ &aLivecraft: Online Since 2011 &5❤/n&8- &71.14.4 &8-"
-    motds:
-      - "&5❤ &71.14.4 - &aLivecraft: Online Since 2011 &5❤/n&fWelcome back &3%player%&f!"
+    messages:
+      update-error: "&c[*] You must be holding a writable book to save"
+      save-error: "&c[*] There was an issue saving this book, please try again"
+      save-success: "&a[*] Saved {1} book successfully"
+      update-success: "&a[*] Updated rule book"
+      parse-error: "&c[*] You must be holding a Book & Quill to parse"
+      parsed: "&a[*] Book was updated"
+      missing: "&c[*] Unable to find the book '&7{1}&c'"
+      confirm: "&a[*] type &7/lc book save {1} &aagain to save this book"
+      delete: "&a[*] Book '&7{1}&a' was deleted"
+      exists: "&c[*] The book '&7{1}&c' already exists"
+      open-permission: "&c[*] You don't have permission to open this book"
+      create-usage: "&cMissing arguments: &7/lc book create book_name"
+      general-usage: "&c[*] Missing arguments for this command"
   #
   broadcast:
     enabled: true
@@ -26,23 +36,6 @@ modules:
       - "&a[*] We have /emotes!"
       - "&a[*] Use @ to ping players!"
       - "&a[*] Sneak right click on a villager to carry them!"
-  #
-  poke:
-    enabled: true
-    particle: HEART
-    sound:
-      id: ENTITY_CHICKEN_EGG
-      volume: 1.0
-      pitch: 1.0
-    # How many seconds to wait before using the poke command again
-    command-cooldown: 5
-    messages:
-      success: "&a[*] You poked {1}"
-      opt-in: "&a[*] You can now be poked by {1}"
-      opt-out: "&a[*] You are now ignoring pokes from {1}"
-      ignoring: "&c[*] You are already ignoring pokes from {1}"
-      not-ignoring: "&c[*] You are not ignoring pokes from {1}"
-      cooldown: "&c[*] You're too tired to poke"
   #
   emote:
     enable: true
@@ -262,6 +255,13 @@ modules:
         replacement: "&m{1}&r"
         priority: 25
   #
+  motd:
+    enabled: true
+    line-width: 250
+    fallback-motd: "&5❤ &aLivecraft: Online Since 2011 &5❤/n&8- &71.14.4 &8-"
+    motds:
+      - "&5❤ &71.14.4 - &aLivecraft: Online Since 2011 &5❤/n&fWelcome back &3%player%&f!"
+  #
   ping:
     enabled: true
     player-highlight: "&3{1}&r"
@@ -301,20 +301,27 @@ modules:
         - "/say"
         - "/bc"
         - "/a"
-  book:
+  #
+  poke:
     enabled: true
+    particle: HEART
+    sound:
+      id: ENTITY_CHICKEN_EGG
+      volume: 1.0
+      pitch: 1.0
+    # How many seconds to wait before using the poke command again
+    command-cooldown: 5
     messages:
-      update-error: "&c[*] You must be holding a writable book to save"
-      save-error: "&c[*] There was an issue saving this book, please try again"
-      save-success: "&a[*] Saved {1} book successfully"
-      update-success: "&a[*] Updated rule book"
-      parse-error: "&c[*] You must be holding a Book & Quill to parse"
-      parsed: "&a[*] Book was updated"
-      missing: "&c[*] Unable to find the book '&7{1}&c'"
-      confirm: "&a[*] type &7/lc book save {1} &aagain to save this book"
-      delete: "&a[*] Book '&7{1}&a' was deleted"
-      exists: "&c[*] The book '&7{1}&c' already exists"
-      open-permission: "&c[*] You don't have permission to open this book"  #
+      success: "&a[*] You poked {1}"
+      opt-in: "&a[*] You can now be poked by {1}"
+      opt-out: "&a[*] You are now ignoring pokes from {1}"
+      ignoring: "&c[*] You are already ignoring pokes from {1}"
+      not-ignoring: "&c[*] You are not ignoring pokes from {1}"
+      cooldown: "&c[*] You're too tired to poke"
+      poke-usage: "&c[*] Missing arguments /poke <>"
+      ignore-usage: "&c[*] Missing player &7/poke ignore <player>"
+      unignore-usage: "&c[*] Missing player &7/poke unignore <player>"
+  #
   sleepvote:
     enabled: true
     worlds:
@@ -335,3 +342,38 @@ modules:
       sleeping: "&a[*] {1} &awants to sleep! &7(&a{2}/{3}&7)"
       waking: "&a[*] Wakey wakey, eggs and bakey"
       thunder: "&a[*] {1} &awants to skip the storm! &7(&a{2}/{3}&7)"
+  #
+  stack:
+    enabled: true
+    # How long to wait (in seconds) before a player can stack another entity
+    cooldown: 1.0
+    # Change the players normal walk / run speed depending on how many entities they're stacking
+    slowdown-player: true
+    # Minimum walk speed a player can have when stacking entities (default walk speed is 0.2)
+    minimum-walk-speed: 0.08
+    damage:
+      # Cancel fall damage when an entity is thrown (yeeted)
+      cancel-fall-damage: true
+      # Cancel suffocation damage when carrying entities
+      cancel-suffocation-damage: true
+    velocity:
+      # Velocity multiplier when throwing an entity while standing still or walking
+      standing-multiplier: 0.0
+      # Velocity multiplier when throwing an entity while sprinting
+      running-multiplier: 2.0
+    messages:
+      opt-in: "&a[*] You can now be picked up by other players"
+      opt-out: "&a[*] You can no longer be picked up by other players"
+      limit-reached: "&c[*] You're carrying too many!"
+      actionbar: "Left click to drop this entity"
+    whitelisted-entities:
+      - PLAYER
+      - VILLAGER
+      - ZOMBIE_VILLAGER
+      - CHICKEN
+      - WOLF
+      - RABBIT
+      - PARROT
+      - BEE
+      - WANDERING_TRADER
+    whitelisted-worlds: []
