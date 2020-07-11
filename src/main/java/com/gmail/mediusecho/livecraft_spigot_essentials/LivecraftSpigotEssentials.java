@@ -82,6 +82,7 @@ public class LivecraftSpigotEssentials extends JavaPlugin implements LanguagePro
         moduleList.add(new PokeModule(this));
         moduleList.add(new MarkdownModule(this));
         moduleList.add(new MotdModule(this));
+        moduleList.add(new BroadcastModule(this));
         moduleList.add(new SleepvoteModule(this));
         moduleList.add(emoteModule);
         moduleList.add(pingModule);
