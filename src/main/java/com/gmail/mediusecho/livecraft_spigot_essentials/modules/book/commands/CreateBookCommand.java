@@ -19,10 +19,7 @@
 
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.commands;
 
-import com.gmail.mediusecho.fusion.annotations.Command;
-import com.gmail.mediusecho.fusion.annotations.Default;
-import com.gmail.mediusecho.fusion.annotations.Permission;
-import com.gmail.mediusecho.fusion.annotations.SenderPolicy;
+import com.gmail.mediusecho.fusion.annotations.*;
 import com.gmail.mediusecho.fusion.command.BukkitCommandSender;
 import com.gmail.mediusecho.fusion.commands.CommandListener;
 import com.gmail.mediusecho.fusion.commands.properties.Sender;
@@ -32,6 +29,7 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 @Command(argument = "create", contexts = "book_name")
+@Usage("modules.book.messages.general-usage")
 public class CreateBookCommand extends CommandListener {
 
     private final BookModule bookModule;

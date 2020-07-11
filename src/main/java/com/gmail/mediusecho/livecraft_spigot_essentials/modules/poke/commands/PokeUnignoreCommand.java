@@ -36,6 +36,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Command(argument = "unignore", contexts = "#ignoring", asContext = true)
+@Usage("modules.poke.messages.unignore-usage")
 public class PokeUnignoreCommand extends CommandListener {
 
     private final PokeModule pokeModule;

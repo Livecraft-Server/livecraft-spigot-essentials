@@ -19,10 +19,7 @@
 
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.commands;
 
-import com.gmail.mediusecho.fusion.annotations.Command;
-import com.gmail.mediusecho.fusion.annotations.Default;
-import com.gmail.mediusecho.fusion.annotations.Permission;
-import com.gmail.mediusecho.fusion.annotations.SenderPolicy;
+import com.gmail.mediusecho.fusion.annotations.*;
 import com.gmail.mediusecho.fusion.command.BukkitCommandSender;
 import com.gmail.mediusecho.fusion.commands.CommandListener;
 import com.gmail.mediusecho.fusion.commands.properties.Sender;
@@ -41,6 +38,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @Command(argument = "save", contexts = "@book")
+@Usage("modules.book.messages.general-usage")
 public class SaveBookCommand extends CommandListener {
 
     private final BookModule bookModule;

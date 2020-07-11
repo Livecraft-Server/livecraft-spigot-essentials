@@ -22,6 +22,7 @@ package com.gmail.mediusecho.livecraft_spigot_essentials.modules.poke.commands;
 import com.gmail.mediusecho.fusion.annotations.Command;
 import com.gmail.mediusecho.fusion.annotations.Context;
 import com.gmail.mediusecho.fusion.annotations.Permission;
+import com.gmail.mediusecho.fusion.annotations.Usage;
 import com.gmail.mediusecho.fusion.command.BukkitCommandSender;
 import com.gmail.mediusecho.fusion.commands.CommandListener;
 import com.gmail.mediusecho.livecraft_spigot_essentials.Lang;
@@ -34,6 +35,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Command(argument = "poke", contexts = "@player|ignore|unignore")
+@Usage("modules.poke.messages.poke-usage")
 public class PokeCommand extends CommandListener {
 
     private final PokeModule pokeModule;
