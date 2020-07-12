@@ -316,7 +316,7 @@ modules:
       opt-in: "&a[*] You can now be poked by {1}"
       opt-out: "&a[*] You are now ignoring pokes from {1}"
       ignoring: "&c[*] You are already ignoring pokes from {1}"
-      not-ignoring: "&c[*] You are not ignoring pokes from {1}"
+      not-ignoring: "&c[*] You are not ignoring pokes from &e{1}"
       cooldown: "&c[*] You're too tired to poke"
       poke-usage: "&c[*] Missing arguments /poke <>"
       ignore-usage: "&c[*] Missing player &7/poke ignore <player>"
@@ -361,11 +361,18 @@ modules:
       standing-multiplier: 0.0
       # Velocity multiplier when throwing an entity while sprinting
       running-multiplier: 2.0
+    show-pickup-and-drop-messages: true
     messages:
       opt-in: "&a[*] You can now be picked up by other players"
       opt-out: "&a[*] You can no longer be picked up by other players"
       limit-reached: "&c[*] You're carrying too many!"
       actionbar: "Left click to drop this entity"
+      pickup-entity: "&a[*] You picked up a &e{1}"
+      pickup-player: "&a[*] You picked up &e{1}"
+      player-yeeted: "&a[*] You yeeted &e{1}"
+      drop-entity: "&a[*] You dropped a &e{1}"
+      drop-player: "&a[*] You dropped &e{1}"
+      entity-yeeted: "&a[*] You yeeted a &e{1}"
     whitelisted-entities:
       - PLAYER
       - VILLAGER

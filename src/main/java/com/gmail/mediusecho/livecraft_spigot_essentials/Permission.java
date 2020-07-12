@@ -45,7 +45,10 @@ public enum Permission {
     SLEEPVOTE_IGNORE ("modules.sleepvote.ignore"),
 
     /** Poke **/
-    POKE ("modules.poke");
+    POKE ("modules.poke"),
+
+    /** Stack **/
+    STACK_ENTITY_LIMIT ("modules.stack.entity.limit.");
 
     private final String ROOT = "lce.";
     private final String permission;

@@ -55,7 +55,19 @@ public enum Lang {
     /** Sleepvote **/
     SLEEPVOTE_SLEEPING ("modules.sleepvote.messages.sleeping"),
     SLEEPVOTE_WAKING ("modules.sleepvote.messages.waking"),
-    SLEEPVOTE_THUNDER ("modules.sleepvote.messages.thunder");
+    SLEEPVOTE_THUNDER ("modules.sleepvote.messages.thunder"),
+
+    /** Stack **/
+    STACK_OPT_IN ("modules.stack.messages.opt-in"),
+    STACK_OPT_OUT ("modules.stack.messages.opt-out"),
+    STACK_LIMIT_REACHED ("modules.stack.messages.limit-reached"),
+    STACK_ACTIONBAR ("modules.stack.messages.actionbar"),
+    STACK_PICKUP_ENTITY ("modules.stack.messages.pickup-entity"),
+    STACK_PICKUP_PLAYER ("modules.stack.messages.pickup-player"),
+    STACK_PLAYER_YEETED ("modules.stack.messages.player-yeeted"),
+    STACK_DROP_ENTITY ("modules.stack.messages.drop-entity"),
+    STACK_DROP_PLAYER ("modules.stack.messages.drop-player"),
+    STACK_ENTITY_YEETED ("modules.stack.messages.entity-yeeted");
 
     private final LivecraftSpigotEssentials plugin = LivecraftSpigotEssentials.instance;
     public final String key;

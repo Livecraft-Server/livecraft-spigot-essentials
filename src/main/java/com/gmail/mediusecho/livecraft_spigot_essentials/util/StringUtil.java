@@ -95,6 +95,33 @@ public class StringUtil {
     }
 
     /**
+     * Returns a string with the fist letter capitalized
+     * @param s
+     *      String to capitalize
+     * @return
+     *      String
+     */
+    @NotNull
+    public static String capitalizeFirstLetter (@NotNull String s)
+    {
+        String original = s.replaceAll("_", " ");
+        String[] words = original.split(" ");
+        StringBuilder builder = new StringBuilder();
+
+        for (int i = 0; i < words.length; i++)
+        {
+            builder.append(Character.toUpperCase(words[i].charAt(0)));
+            builder.append(words[i].substring(1));
+
+            if (i < words.length - 1) {
+                builder.append(' ');
+            }
+        }
+
+        return builder.toString();
+    }
+
+    /**
      * Removes the fileNames extension
      * @param fileName Name of the file
      * @return The file name without extensions

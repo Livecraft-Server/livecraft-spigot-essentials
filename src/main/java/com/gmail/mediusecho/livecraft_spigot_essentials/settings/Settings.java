@@ -86,4 +86,17 @@ public class Settings {
     public static final SettingsValue<Boolean> SLEEPVOTE_IGNORE_STAFF = new SettingsValue<>("modules.sleepvote.ignore-staff", false);
     public static final SettingsValue<Boolean> SLEEPVOTE_CHECK_WEATHER = new SettingsValue<>("modules.sleepvote.check-weather", true);
     public static final SettingsValue<Boolean> SLEEPVOTE_BROADCAST_TO_SLEEPING_PLAYERS_ONLY = new SettingsValue<>("modules.sleepvote.broadcast-wake-up-to-sleeping-players-only", false);
+
+    /** Stack **/
+    public static final SettingsValue<Boolean> STACK_ENABLED = new SettingsValue<>("modules.stack.enabled", true);
+    public static final SettingsValue<Float> STACK_COOLDOWN = new SettingsValue<>("modules.stack.cooldown", 1.0f);
+    public static final SettingsValue<Boolean> STACK_PLAYER_SLOWDOWN = new SettingsValue<>("modules.stack.slowdown-player", true);
+    public static final SettingsValue<Float> STACK_MIMINUM_WALK_SPEED = new SettingsValue<>("modules.stack.minimum-walk-speed", 0.08f);
+    public static final SettingsValue<Boolean> STACK_CANCEL_FALL_DAMAGE = new SettingsValue<>("modules.stack.damage.cancel-fall-damage", true);
+    public static final SettingsValue<Boolean> STACK_CANCEL_SUFFOCATION_DAMAGE = new SettingsValue<>("modules.stack.damage.cancel-suffocation-damage", true);
+    public static final SettingsValue<Float> STACK_STANDING_MULTIPLIER = new SettingsValue<>("modules.stack.velocity.standing-multiplier", 0f);
+    public static final SettingsValue<Float> STACK_RUNNING_MULTIPLIER = new SettingsValue<>("modules.stack.velocity.running-multiplier", 2.0f);
+    public static final SettingsPointer STACK_WHITELISTED_ENTITIES_POINTER = new SettingsPointer("modules.stack.whitelisted-entities");
+    public static final SettingsPointer STACK_WHITELISTED_WORLDS_POINTER = new SettingsPointer("modules.stack.whitelisted-worlds");
+    public static final SettingsValue<Boolean> STACK_SHOW_PICKUP_AND_DROP_MESSAGES = new SettingsValue<>("modules.stack.show-pickup-and-drop-messages", true);
 }
