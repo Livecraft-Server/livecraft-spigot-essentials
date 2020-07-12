@@ -7,8 +7,8 @@ An essentials plugin for the Livecraft server.
 * Discord style emote parsing (Supports chat,signs,commands,anvils).
 * Discord style text markdown.
 * Discord style player @ mentions.
-* (TODO) Custom motd in server browser.
-* (TODO) Sleepvote system.
-* (TODO) Player/entity stacking.
+* Custom motd in server browser.
+* Sleepvote system.
+* Player/entity stacking.
 * Create/edit/preview books from config files.
-* (TODO) Message broadcasting at set intervals.
+* Message broadcasting at set intervals.
