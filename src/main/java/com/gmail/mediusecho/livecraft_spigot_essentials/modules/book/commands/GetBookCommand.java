@@ -46,9 +46,7 @@ public class GetBookCommand extends CommandListener {
     @SenderPolicy(Sender.PLAYER_ONLY)
     public void getBook (@NotNull BukkitCommandSender sender)
     {
-        List<String> arguments = sender.getFullArguments();
-        String bookName = arguments.get(2);
-
+        String bookName = sender.getArgument(2);
         if (!bookModule.bookExists(bookName))
         {
             bookError(sender, bookName);

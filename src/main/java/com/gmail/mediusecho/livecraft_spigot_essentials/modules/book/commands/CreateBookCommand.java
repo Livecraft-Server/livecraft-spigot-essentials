@@ -44,7 +44,7 @@ public class CreateBookCommand extends CommandListener {
     @SenderPolicy(Sender.PLAYER_ONLY)
     public void createBook (@NotNull BukkitCommandSender sender)
     {
-        String bookName = sender.getFullArguments().get(2);
+        String bookName = sender.getArgument(2);
 
         if (bookModule.bookExists(bookName))
         {

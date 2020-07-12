@@ -43,9 +43,10 @@ public class LCMainCommand extends CommandListener {
     public void showInfo (@NotNull BukkitCommandSender sender)
     {
         PluginDescriptionFile descriptionFile = plugin.getDescription();
-        sender.sendMessage(Lang.INFO.get()
-                .replace("{1}", descriptionFile.getName())
-                .replace("{2}", descriptionFile.getVersion()));
+        sender.sendMessage(Lang.INFO.get(
+                "{1}", descriptionFile.getName(),
+                "{2}", descriptionFile.getVersion()
+        ));
     }
 
     @Command(argument = "reload")
@@ -56,8 +57,7 @@ public class LCMainCommand extends CommandListener {
         public void reload (@NotNull BukkitCommandSender sender)
         {
             plugin.reload();
-            sender.sendMessage(Lang.RELOAD.get()
-                    .replace("{1}", plugin.getDescription().getName()));
+            sender.sendMessage(Lang.RELOAD.get("{1}", plugin.getDescription().getName()));
         }
     }
 }

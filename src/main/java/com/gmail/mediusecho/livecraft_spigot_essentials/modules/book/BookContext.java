@@ -19,12 +19,12 @@
 
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.book;
 
-import com.gmail.mediusecho.fusion.context.Context;
+import com.gmail.mediusecho.fusion.context.ContextProvider;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookContext implements Context {
+public class BookContext implements ContextProvider {
 
     private final BookModule bookModule;
 

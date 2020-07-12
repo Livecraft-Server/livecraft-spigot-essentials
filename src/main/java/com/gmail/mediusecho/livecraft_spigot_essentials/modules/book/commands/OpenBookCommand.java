@@ -51,23 +51,23 @@ public class OpenBookCommand extends CommandListener {
     @Permission(permission = "lce.command.modules.book.open.#book", permissionDeniedKey = "modules.book.messages.open-permission")
     @SenderPolicy(Sender.PLAYER_ONLY)
     public void openBook (@NotNull BukkitCommandSender sender) {
-        openBook(sender.getPlayer(), sender.getFullArguments().get(2));
+        openBook(sender.getPlayer(), sender.getArgument(2));
     }
 
     @Context(context = "@player")
     @Permission(permission = "lce.command.modules.book.open.player")
     public void openPlayerBook (@NotNull BukkitCommandSender sender)
     {
-        List<String> arguments = sender.getFullArguments();
-        Player player = Bukkit.getPlayer(arguments.get(3));
+        String playerName = sender.getArgument(3);
+        Player player = Bukkit.getPlayer(playerName);
 
         if (player == null || !player.isOnline())
         {
-            sender.sendMessage(Lang.PLAYER_ERROR.get("{1}", arguments.get(3)));
+            sender.sendMessage(Lang.PLAYER_ERROR.get("{1}", playerName));
             return;
         }
 
-        openBook(player, arguments.get(2));
+        openBook(player, sender.getArgument(2));
     }
 
     @Context(context = "#book", providingContext = true)

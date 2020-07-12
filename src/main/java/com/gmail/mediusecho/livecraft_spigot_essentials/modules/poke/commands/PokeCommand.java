@@ -51,12 +51,12 @@ public class PokeCommand extends CommandListener {
     @Permission(permission = "lce.command.modules.poke.player")
     public void pokePlayer (@NotNull BukkitCommandSender sender)
     {
-        List<String> arguments = sender.getFullArguments();
-        Player player = Bukkit.getPlayer(arguments.get(1));
+        String playerName = sender.getArgument(1);
+        Player player = Bukkit.getPlayer(playerName);
 
         if (player == null || !player.isOnline())
         {
-            sender.sendMessage(Lang.PLAYER_ERROR.get().replace("{1}", arguments.get(1)));
+            sender.sendMessage(Lang.PLAYER_ERROR.get().replace("{1}", playerName));
             return;
         }
 

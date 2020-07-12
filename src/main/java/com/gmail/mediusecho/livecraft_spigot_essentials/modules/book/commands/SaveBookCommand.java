@@ -58,7 +58,6 @@ public class SaveBookCommand extends CommandListener {
     @SenderPolicy(Sender.PLAYER_ONLY)
     public void saveBook (@NotNull BukkitCommandSender sender)
     {
-        List<String> arguments = sender.getFullArguments();
         Player player = sender.getPlayer();
         ItemStack heldItem = player.getInventory().getItemInMainHand();
 
@@ -68,7 +67,7 @@ public class SaveBookCommand extends CommandListener {
             return;
         }
 
-        String bookName = arguments.get(2);
+        String bookName = sender.getArgument(2);
         if (!bookModule.bookExists(bookName))
         {
             sender.sendMessage(Lang.BOOK_MISSING.get("{1}", bookName));
