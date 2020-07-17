@@ -19,10 +19,7 @@
 
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.commands;
 
-import com.gmail.mediusecho.fusion.annotations.Command;
-import com.gmail.mediusecho.fusion.annotations.Default;
-import com.gmail.mediusecho.fusion.annotations.Permission;
-import com.gmail.mediusecho.fusion.annotations.Usage;
+import com.gmail.mediusecho.fusion.annotations.*;
 import com.gmail.mediusecho.fusion.command.BukkitCommandSender;
 import com.gmail.mediusecho.fusion.commands.CommandListener;
 import com.gmail.mediusecho.livecraft_spigot_essentials.Lang;
@@ -33,12 +30,7 @@ import org.jetbrains.annotations.NotNull;
 @Usage("modules.book.messages.general-usage")
 public class DeleteBookCommand extends CommandListener {
 
-    private final BookModule bookModule;
-
-    public DeleteBookCommand (final BookModule bookModule)
-    {
-        this.bookModule = bookModule;
-    }
+    @Inject private BookModule bookModule;
 
     @Default
     @Permission(permission = "lce.command.modules.book.delete")

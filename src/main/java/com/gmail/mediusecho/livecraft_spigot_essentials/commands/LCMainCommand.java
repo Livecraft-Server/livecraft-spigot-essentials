@@ -31,12 +31,7 @@ import org.jetbrains.annotations.NotNull;
 @Command(argument = "lc")
 public class LCMainCommand extends CommandListener {
 
-    private final LivecraftSpigotEssentials plugin;
-
-    public LCMainCommand (final LivecraftSpigotEssentials plugin)
-    {
-        this.plugin = plugin;
-    }
+    @Inject private LivecraftSpigotEssentials plugin;
 
     @Default
     @Permission(permission = "lce.command.lc")

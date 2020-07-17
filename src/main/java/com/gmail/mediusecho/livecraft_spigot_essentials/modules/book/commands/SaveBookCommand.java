@@ -41,14 +41,13 @@ import java.util.UUID;
 @Usage("modules.book.messages.general-usage")
 public class SaveBookCommand extends CommandListener {
 
-    private final BookModule bookModule;
+    @Inject private BookModule bookModule;
 
     private Map<UUID, Boolean> confirmationMap;
     private Map<UUID, String> bookNameMap;
 
-    public SaveBookCommand (final BookModule bookModule)
+    public SaveBookCommand ()
     {
-        this.bookModule = bookModule;
         confirmationMap = new HashMap<>();
         bookNameMap = new HashMap<>();
     }

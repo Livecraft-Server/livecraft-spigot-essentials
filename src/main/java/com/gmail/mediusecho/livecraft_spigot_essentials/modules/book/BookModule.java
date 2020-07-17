@@ -40,13 +40,13 @@ public class BookModule extends Module {
     private Map<String, ItemStack> bookMap;
     private Map<String, CustomConfig> bookConfigMap;
 
-    public BookModule(LivecraftSpigotEssentials plugin, EmoteModule emoteModule)
+    public BookModule(LivecraftSpigotEssentials plugin)
     {
         super(plugin, Settings.BOOK_ENABLED);
         bookMap = new HashMap<>();
         bookConfigMap = new HashMap<>();
 
-        plugin.getMainCommand().registerCommand(new BookCommand(this, emoteModule));
+        plugin.getMainCommand().registerCommand(new BookCommand());
     }
 
     @Override

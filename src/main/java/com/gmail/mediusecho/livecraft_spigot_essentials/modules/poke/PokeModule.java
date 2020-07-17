@@ -53,7 +53,7 @@ public class PokeModule extends Module {
         super(plugin, Settings.POKE_ENABLED);
 
         pokeDataMap = new HashMap<>();
-        plugin.getMainCommand().registerCommand(new PokeCommand(this));
+        plugin.getMainCommand().registerCommand(new PokeCommand());
     }
 
     @Override

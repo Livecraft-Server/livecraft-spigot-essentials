@@ -19,10 +19,7 @@
 
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.commands;
 
-import com.gmail.mediusecho.fusion.annotations.Command;
-import com.gmail.mediusecho.fusion.annotations.Context;
-import com.gmail.mediusecho.fusion.annotations.Permission;
-import com.gmail.mediusecho.fusion.annotations.SenderPolicy;
+import com.gmail.mediusecho.fusion.annotations.*;
 import com.gmail.mediusecho.fusion.command.BukkitCommandSender;
 import com.gmail.mediusecho.fusion.commands.CommandListener;
 import com.gmail.mediusecho.fusion.commands.properties.Sender;
@@ -40,12 +37,7 @@ import java.util.List;
 @Command(argument = "open", contexts = "#book @player")
 public class OpenBookCommand extends CommandListener {
 
-    private final BookModule bookModule;
-
-    public OpenBookCommand (final BookModule bookModule)
-    {
-        this.bookModule = bookModule;
-    }
+    @Inject private BookModule bookModule;
 
     @Context(context = "#book")
     @Permission(permission = "lce.command.modules.book.open.#book", permissionDeniedKey = "modules.book.messages.open-permission")

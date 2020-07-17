@@ -27,7 +27,6 @@ import com.gmail.mediusecho.fusion.command.BukkitCommandSender;
 import com.gmail.mediusecho.fusion.commands.CommandListener;
 import com.gmail.mediusecho.fusion.commands.properties.Sender;
 import com.gmail.mediusecho.livecraft_spigot_essentials.Lang;
-import com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.BookModule;
 import com.gmail.mediusecho.livecraft_spigot_essentials.util.BookUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

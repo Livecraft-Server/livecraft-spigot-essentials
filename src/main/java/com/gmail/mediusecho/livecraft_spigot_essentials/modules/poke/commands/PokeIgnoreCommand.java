@@ -39,12 +39,7 @@ import java.util.UUID;
 @Usage("modules.poke.messages.ignore-usage")
 public class PokeIgnoreCommand extends CommandListener {
 
-    private final PokeModule pokeModule;
-
-    public PokeIgnoreCommand(final PokeModule pokeModule)
-    {
-        this.pokeModule = pokeModule;
-    }
+    @Inject private PokeModule pokeModule;
 
     @Default
     @SenderPolicy(Sender.PLAYER_ONLY)

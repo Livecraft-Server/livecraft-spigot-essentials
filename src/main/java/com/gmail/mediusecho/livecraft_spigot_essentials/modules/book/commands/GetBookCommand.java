@@ -28,18 +28,11 @@ import com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.BookModule;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
-
 @Command(argument = "get", contexts = "@book")
 @Usage("modules.book.messages.general-usage")
 public class GetBookCommand extends CommandListener {
 
-    private final BookModule bookModule;
-
-    public GetBookCommand (final BookModule bookModule)
-    {
-        this.bookModule = bookModule;
-    }
+    @Inject private BookModule bookModule;
 
     @Default
     @Permission(permission = "lce.command.modules.book.get.@book")

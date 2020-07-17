@@ -19,10 +19,7 @@
 
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.poke.commands;
 
-import com.gmail.mediusecho.fusion.annotations.Command;
-import com.gmail.mediusecho.fusion.annotations.Context;
-import com.gmail.mediusecho.fusion.annotations.Permission;
-import com.gmail.mediusecho.fusion.annotations.Usage;
+import com.gmail.mediusecho.fusion.annotations.*;
 import com.gmail.mediusecho.fusion.command.BukkitCommandSender;
 import com.gmail.mediusecho.fusion.commands.CommandListener;
 import com.gmail.mediusecho.livecraft_spigot_essentials.Lang;
@@ -31,20 +28,18 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
 import java.util.UUID;
 
 @Command(argument = "poke", contexts = "@player|ignore|unignore")
 @Usage("modules.poke.messages.poke-usage")
 public class PokeCommand extends CommandListener {
 
-    private final PokeModule pokeModule;
+    @Inject private PokeModule pokeModule;
 
-    public PokeCommand (final PokeModule pokeModule)
+    public PokeCommand ()
     {
-        this.pokeModule = pokeModule;
-        registerCommand(new PokeIgnoreCommand(pokeModule));
-        registerCommand(new PokeUnignoreCommand(pokeModule));
+        registerCommand(new PokeIgnoreCommand());
+        registerCommand(new PokeUnignoreCommand());
     }
 
     @Context(context = "@player")

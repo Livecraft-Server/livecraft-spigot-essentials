@@ -61,6 +61,7 @@ public class LivecraftSpigotEssentials extends JavaPlugin implements LanguagePro
     private Map<UUID, CustomConfig> playerConfigMap;
     private List<Module> moduleList;
 
+    private PokeModule pokeModule;
     private PingModule pingModule;
     private EmoteModule emoteModule;
     private BookModule bookModule;
@@ -74,14 +75,16 @@ public class LivecraftSpigotEssentials extends JavaPlugin implements LanguagePro
         saveDefaultConfig();
 
         instance = this;
-        mainCommand = new LCMainCommand(this);
+        mainCommand = new LCMainCommand();
+        pokeModule = new PokeModule(this);
         pingModule = new PingModule(this);
         emoteModule = new EmoteModule(this);
         bookModule = new BookModule(this, emoteModule);
+        bookModule = new BookModule(this);
 
         playerConfigMap = new HashMap<>();
         moduleList = new ArrayList<>();
-        moduleList.add(new PokeModule(this));
+        moduleList.add(pokeModule);
         moduleList.add(new MarkdownModule(this));
         moduleList.add(new MotdModule(this));
         moduleList.add(new BroadcastModule(this));
@@ -102,7 +105,14 @@ public class LivecraftSpigotEssentials extends JavaPlugin implements LanguagePro
         messenger.registerOutgoingPluginChannel(this, "lce:message");
 
         BukkitCommandFramework bukkitCommandFramework = new BukkitCommandFramework(this, this);
+        bukkitCommandFramework.registerDependency(LivecraftSpigotEssentials.class, this);
+        bukkitCommandFramework.registerDependency(PokeModule.class, pokeModule);
+        bukkitCommandFramework.registerDependency(BookModule.class, bookModule);
+        bukkitCommandFramework.registerDependency(EmoteModule.class, emoteModule);
+        bukkitCommandFramework.registerDependency(RecipeModule.class, recipeModule);
+
         bukkitCommandFramework.registerMainCommand(mainCommand);
+
         bukkitCommandFramework.registerContext("@book", new BookContext(bookModule));
         bukkitCommandFramework.registerDefaultLangKey(LangKey.UNKNOWN_COMMAND, Lang.UNKNOWN_COMMAND.key);
         bukkitCommandFramework.registerDefaultLangKey(LangKey.NO_PERMISSION, Lang.NO_PERMISSION.key);

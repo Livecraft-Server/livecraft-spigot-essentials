@@ -32,12 +32,7 @@ import org.jetbrains.annotations.NotNull;
 @Usage("modules.book.messages.general-usage")
 public class CreateBookCommand extends CommandListener {
 
-    private final BookModule bookModule;
-
-    public CreateBookCommand (final BookModule bookModule)
-    {
-        this.bookModule = bookModule;
-    }
+    @Inject private BookModule bookModule;
 
     @Default
     @Permission(permission = "lce.command.modules.book.create")
