@@ -19,13 +19,10 @@
 
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.stack.commands;
 
-import com.gmail.mediusecho.fusion.annotations.Command;
-import com.gmail.mediusecho.fusion.annotations.Default;
-import com.gmail.mediusecho.fusion.annotations.Permission;
-import com.gmail.mediusecho.fusion.annotations.SenderPolicy;
-import com.gmail.mediusecho.fusion.command.BukkitCommandSender;
-import com.gmail.mediusecho.fusion.commands.CommandListener;
-import com.gmail.mediusecho.fusion.commands.properties.Sender;
+import com.gmail.mediusecho.fusion.api.BukkitCommandSender;
+import com.gmail.mediusecho.fusion.api.annotations.*;
+import com.gmail.mediusecho.fusion.api.commands.CommandListener;
+import com.gmail.mediusecho.fusion.api.commands.Sender;
 import com.gmail.mediusecho.livecraft_spigot_essentials.Lang;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.stack.StackModule;
 import com.gmail.mediusecho.livecraft_spigot_essentials.util.StringUtil;
@@ -35,12 +32,7 @@ import org.jetbrains.annotations.NotNull;
 @Command(argument = "stack", contexts = "on|off")
 public class StackCommand extends CommandListener {
 
-    private final StackModule stackModule;
-
-    public StackCommand (final StackModule stackModule)
-    {
-        this.stackModule = stackModule;
-    }
+    @Inject private StackModule stackModule;
 
     @Default
     @Permission(permission = "lce.command.modules.stack")

@@ -21,8 +21,8 @@
 package com.gmail.mediusecho.livecraft_spigot_essentials;
 
 import com.gmail.mediusecho.fusion.BukkitCommandFramework;
-import com.gmail.mediusecho.fusion.LanguageProvider;
-import com.gmail.mediusecho.fusion.properties.LangKey;
+import com.gmail.mediusecho.fusion.api.LangKey;
+import com.gmail.mediusecho.fusion.api.LanguageProvider;
 import com.gmail.mediusecho.livecraft_spigot_essentials.commands.LCMainCommand;
 import com.gmail.mediusecho.livecraft_spigot_essentials.config.CustomConfig;
 import com.gmail.mediusecho.livecraft_spigot_essentials.listeners.ConnectionListener;

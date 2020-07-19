@@ -71,7 +71,7 @@ public class StackModule extends Module {
     public StackModule(LivecraftSpigotEssentials plugin)
     {
         super(plugin, Settings.STACK_ENABLED);
-        plugin.getMainCommand().registerCommand(new StackCommand(this));
+        plugin.getMainCommand().registerCommand(new StackCommand());
 
         damageCauses = new ArrayList<>(Arrays.asList(EntityDamageEvent.DamageCause.FALL, EntityDamageEvent.DamageCause.SUFFOCATION));
         whitelistedEntities = new ArrayList<>();

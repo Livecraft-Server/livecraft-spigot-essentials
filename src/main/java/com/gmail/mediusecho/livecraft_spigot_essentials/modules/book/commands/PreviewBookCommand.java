@@ -19,13 +19,13 @@
 
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.commands;
 
-import com.gmail.mediusecho.fusion.annotations.Command;
-import com.gmail.mediusecho.fusion.annotations.Default;
-import com.gmail.mediusecho.fusion.annotations.Permission;
-import com.gmail.mediusecho.fusion.annotations.SenderPolicy;
-import com.gmail.mediusecho.fusion.command.BukkitCommandSender;
-import com.gmail.mediusecho.fusion.commands.CommandListener;
-import com.gmail.mediusecho.fusion.commands.properties.Sender;
+import com.gmail.mediusecho.fusion.api.BukkitCommandSender;
+import com.gmail.mediusecho.fusion.api.annotations.Command;
+import com.gmail.mediusecho.fusion.api.annotations.Default;
+import com.gmail.mediusecho.fusion.api.annotations.Permission;
+import com.gmail.mediusecho.fusion.api.annotations.SenderPolicy;
+import com.gmail.mediusecho.fusion.api.commands.CommandListener;
+import com.gmail.mediusecho.fusion.api.commands.Sender;
 import com.gmail.mediusecho.livecraft_spigot_essentials.Lang;
 import com.gmail.mediusecho.livecraft_spigot_essentials.util.BookUtil;
 import org.bukkit.ChatColor;

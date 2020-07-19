@@ -19,12 +19,12 @@
 
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.commands;
 
-import com.gmail.mediusecho.fusion.annotations.Command;
-import com.gmail.mediusecho.fusion.annotations.Default;
-import com.gmail.mediusecho.fusion.annotations.Inject;
-import com.gmail.mediusecho.fusion.annotations.Permission;
-import com.gmail.mediusecho.fusion.command.BukkitCommandSender;
-import com.gmail.mediusecho.fusion.commands.CommandListener;
+import com.gmail.mediusecho.fusion.api.BukkitCommandSender;
+import com.gmail.mediusecho.fusion.api.annotations.Command;
+import com.gmail.mediusecho.fusion.api.annotations.Default;
+import com.gmail.mediusecho.fusion.api.annotations.Inject;
+import com.gmail.mediusecho.fusion.api.annotations.Permission;
+import com.gmail.mediusecho.fusion.api.commands.CommandListener;
 import com.gmail.mediusecho.livecraft_spigot_essentials.Lang;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.emote.EmoteModule;
 import com.gmail.mediusecho.livecraft_spigot_essentials.util.BookUtil;

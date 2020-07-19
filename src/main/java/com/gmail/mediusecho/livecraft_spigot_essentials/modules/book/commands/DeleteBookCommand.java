@@ -19,9 +19,9 @@
 
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.commands;
 
-import com.gmail.mediusecho.fusion.annotations.*;
-import com.gmail.mediusecho.fusion.command.BukkitCommandSender;
-import com.gmail.mediusecho.fusion.commands.CommandListener;
+import com.gmail.mediusecho.fusion.api.BukkitCommandSender;
+import com.gmail.mediusecho.fusion.api.annotations.*;
+import com.gmail.mediusecho.fusion.api.commands.CommandListener;
 import com.gmail.mediusecho.livecraft_spigot_essentials.Lang;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.BookModule;
 import org.jetbrains.annotations.NotNull;

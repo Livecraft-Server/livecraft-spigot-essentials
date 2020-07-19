@@ -19,7 +19,7 @@
 
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.book;
 
-import com.gmail.mediusecho.fusion.context.ContextProvider;
+import com.gmail.mediusecho.fusion.api.commands.ContextProvider;
 
 import java.util.ArrayList;
 import java.util.List;
