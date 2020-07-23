@@ -29,6 +29,7 @@ import com.gmail.mediusecho.livecraft_spigot_essentials.modules.poke.PokeModule;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,14 +45,11 @@ public class PokeIgnoreCommand extends CommandListener {
     @Default
     @SenderPolicy(Sender.PLAYER_ONLY)
     @Permission(permission = "lce.command.modules.poke.ignore")
-    public void ignorePokes(@NotNull BukkitCommandSender sender)
+    public void ignorePokes(@NotNull BukkitCommandSender sender, Player player)
     {
-        String playerName = sender.getArgument(2);
-        Player player = Bukkit.getPlayer(playerName);
-
         if (player == null || !player.isOnline())
         {
-            sender.sendMessage(Lang.PLAYER_ERROR.get().replace("{1}", playerName));
+            sender.sendMessage(Lang.PLAYER_ERROR.get().replace("{1}", sender.getArgument(2)));
             return;
         }
 

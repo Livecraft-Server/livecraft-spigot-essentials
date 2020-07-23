@@ -44,14 +44,11 @@ public class PokeUnignoreCommand extends CommandListener {
     @Default
     @SenderPolicy(Sender.PLAYER_ONLY)
     @Permission(permission = "lce.command.modules.poke.unignore")
-    public void unignorePokes (@NotNull BukkitCommandSender sender)
+    public void unignorePokes (@NotNull BukkitCommandSender sender, Player player)
     {
-        String playerName = sender.getArgument(2);
-        Player player = Bukkit.getPlayer(playerName);
-
         if (player == null || !player.isOnline())
         {
-            sender.sendMessage(Lang.PLAYER_ERROR.get().replace("{1}", playerName));
+            sender.sendMessage(Lang.PLAYER_ERROR.get().replace("{1}", sender.getArgument(2)));
             return;
         }
 
