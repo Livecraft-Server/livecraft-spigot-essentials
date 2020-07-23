@@ -37,10 +37,9 @@ public class StackCommand extends CommandListener {
     @Default
     @Permission(permission = "lce.command.modules.stack")
     @SenderPolicy(Sender.PLAYER_ONLY)
-    public void toggleStack (@NotNull BukkitCommandSender sender)
+    public void toggleStack (@NotNull BukkitCommandSender sender, boolean status)
     {
         Player player = sender.getPlayer();
-        boolean status = StringUtil.getToggleValue(sender.getArgument(1));
 
         stackModule.togglePlayerOptedStatus(player, status);
         Lang message = status ? Lang.STACK_OPT_IN : Lang.STACK_OPT_OUT;
