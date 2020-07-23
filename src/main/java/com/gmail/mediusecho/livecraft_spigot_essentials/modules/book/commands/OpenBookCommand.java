@@ -42,29 +42,29 @@ public class OpenBookCommand extends CommandListener {
     @Context(context = "#book")
     @Permission(permission = "lce.command.modules.book.open.#book", permissionDeniedKey = "modules.book.messages.open-permission")
     @SenderPolicy(Sender.PLAYER_ONLY)
-    public void openBook (@NotNull BukkitCommandSender sender) {
-        openBook(sender.getPlayer(), sender.getArgument(2));
+    public void openBook (@NotNull BukkitCommandSender sender, String bookName) {
+        openBook(sender.getPlayer(), bookName);
     }
 
     @Context(context = "@player")
     @Permission(permission = "lce.command.modules.book.open.player")
-    public void openPlayerBook (@NotNull BukkitCommandSender sender)
+    public void openPlayerBook (@NotNull BukkitCommandSender sender, String bookName, Player player)
     {
-        String playerName = sender.getArgument(3);
-        Player player = Bukkit.getPlayer(playerName);
-
         if (player == null || !player.isOnline())
         {
-            sender.sendMessage(Lang.PLAYER_ERROR.get("{1}", playerName));
+            sender.sendMessage(Lang.PLAYER_ERROR.get("{1}", sender.getArgument(3)));
             return;
         }
-
-        openBook(player, sender.getArgument(2));
+        openBook(player, bookName);
     }
 
     @Context(context = "#book", providingContext = true)
-    public List<String> getBooks (BukkitCommandSender sender)
+    public List<String> getBooks (@NotNull BukkitCommandSender sender)
     {
+        if (sender.hasPermission("lce.command.*") || sender.hasPermission("lce.command.all")) {
+            return new ArrayList<>(bookModule.getBookNames());
+        }
+
         List<String> books = new ArrayList<>();
         for (String name : bookModule.getBookNames())
         {

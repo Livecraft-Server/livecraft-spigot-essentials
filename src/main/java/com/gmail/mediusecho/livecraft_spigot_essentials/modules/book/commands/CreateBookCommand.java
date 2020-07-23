@@ -37,10 +37,8 @@ public class CreateBookCommand extends CommandListener {
     @Default
     @Permission(permission = "lce.command.modules.book.create")
     @SenderPolicy(Sender.PLAYER_ONLY)
-    public void createBook (@NotNull BukkitCommandSender sender)
+    public void createBook (@NotNull BukkitCommandSender sender, String bookName)
     {
-        String bookName = sender.getArgument(2);
-
         if (bookModule.bookExists(bookName))
         {
             sender.sendMessage(Lang.BOOK_EXISTS.get("{1}", bookName));

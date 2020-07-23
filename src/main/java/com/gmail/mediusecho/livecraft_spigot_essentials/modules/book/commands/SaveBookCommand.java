@@ -54,18 +54,17 @@ public class SaveBookCommand extends CommandListener {
     @Default
     @Permission(permission = "lce.command.modules.book.save.@book")
     @SenderPolicy(Sender.PLAYER_ONLY)
-    public void saveBook (@NotNull BukkitCommandSender sender)
+    public void saveBook (@NotNull BukkitCommandSender sender, String bookName)
     {
         Player player = sender.getPlayer();
         ItemStack heldItem = player.getInventory().getItemInMainHand();
 
-        if (heldItem.getType().equals(Material.AIR))
+        if (!heldItem.getType().equals(Material.WRITABLE_BOOK))
         {
             sender.sendMessage(Lang.BOOK_UPDATE_ERROR.get());
             return;
         }
 
-        String bookName = sender.getArgument(2);
         if (!bookModule.bookExists(bookName))
         {
             sender.sendMessage(Lang.BOOK_MISSING.get("{1}", bookName));

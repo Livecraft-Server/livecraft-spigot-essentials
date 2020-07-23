@@ -27,6 +27,8 @@ import com.gmail.mediusecho.fusion.api.annotations.Permission;
 import com.gmail.mediusecho.fusion.api.commands.CommandListener;
 import com.gmail.mediusecho.livecraft_spigot_essentials.Lang;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.emote.EmoteModule;
+import com.gmail.mediusecho.livecraft_spigot_essentials.modules.markdown.MarkdownFormat;
+import com.gmail.mediusecho.livecraft_spigot_essentials.modules.markdown.MarkdownModule;
 import com.gmail.mediusecho.livecraft_spigot_essentials.util.BookUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -42,6 +44,7 @@ import java.util.List;
 public class ParseBookCommand extends CommandListener {
 
     @Inject private EmoteModule emoteModule;
+    @Inject private MarkdownModule markdownModule;
 
     @Default
     @Permission(permission = "lce.command.modules.book.parse")
@@ -59,8 +62,12 @@ public class ParseBookCommand extends CommandListener {
         BookMeta bookMeta = (BookMeta)heldItem.getItemMeta();
         List<String> pages = new ArrayList<>();
 
-        for (String page : bookMeta.getPages()) {
-            pages.add(emoteModule.parseEmotes(page));
+        for (String page : bookMeta.getPages())
+        {
+            String p = emoteModule.parseEmotes(page);
+            p = markdownModule.parseMarkdown(p);
+
+            pages.add(p);
         }
 
         ItemStack book = new ItemStack(Material.WRITTEN_BOOK);

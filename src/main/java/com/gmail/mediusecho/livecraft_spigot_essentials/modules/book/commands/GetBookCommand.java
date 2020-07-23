@@ -37,16 +37,15 @@ public class GetBookCommand extends CommandListener {
     @Default
     @Permission(permission = "lce.command.modules.book.get.@book")
     @SenderPolicy(Sender.PLAYER_ONLY)
-    public void getBook (@NotNull BukkitCommandSender sender)
+    public void getBook (@NotNull BukkitCommandSender sender, String bookName)
     {
-        String bookName = sender.getArgument(2);
         if (!bookModule.bookExists(bookName))
         {
             bookError(sender, bookName);
             return;
         }
 
-        ItemStack book = bookModule.getBook(bookName);
+        ItemStack book = bookModule.getEditableBook(bookName);
         if (book == null)
         {
             bookError(sender, bookName);
