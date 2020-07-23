@@ -136,6 +136,42 @@ public class BookModule extends Module {
     }
 
     /**
+     * Returns a WRITABLE_BOOK loaded from a configuration
+     * file.
+     *
+     * @param name
+     *      The name of the book
+     * @return
+     *      ItemStack
+     */
+    public ItemStack getEditableBook (String name)
+    {
+        ItemStack book = new ItemStack(Material.WRITABLE_BOOK);
+        BookMeta bookMeta = (BookMeta)book.getItemMeta();
+
+        bookMeta.setTitle(name);
+        bookMeta.setAuthor("Someone Special");
+        bookMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&3Book of " + name));
+
+        CustomConfig bookConfig = new CustomConfig(plugin, "books", name + ".yml", false);
+        FileConfiguration config = bookConfig.getConfig();
+        Set<String> keys = config.getConfigurationSection("pages").getKeys(false);
+
+        List<String> pages = new ArrayList<>();
+        for (String key : keys)
+        {
+            String path = "pages." + key;
+            String page = ChatColor.translateAlternateColorCodes('&', config.getString(path).replaceAll("\\\\n", "\n"));
+            pages.add(page);
+        }
+
+        bookMeta.setPages(pages);
+        book.setItemMeta(bookMeta);
+
+        return book;
+    }
+
+    /**
      * Returns the {@link CustomConfig} associated with
      * this book
      *
