@@ -20,8 +20,6 @@
 package com.gmail.mediusecho.livecraft_spigot_essentials.commands;
 
 import com.gmail.mediusecho.fusion.api.BukkitCommandSender;
-import com.gmail.mediusecho.fusion.api.FusionCommands;
-import com.gmail.mediusecho.fusion.api.LogFlag;
 import com.gmail.mediusecho.fusion.api.MainCommand;
 import com.gmail.mediusecho.fusion.api.annotations.*;
 import com.gmail.mediusecho.fusion.api.commands.CommandListener;
@@ -48,14 +46,10 @@ public class LCMainCommand extends CommandListener {
     }
 
     @Command(argument = "reload")
-    public class LCReloadCommand extends CommandListener {
-
-        @Default
-        @Permission(permission = "lce.command.reload")
-        public void reload (@NotNull BukkitCommandSender sender)
-        {
-            plugin.reload();
-            sender.sendMessage(Lang.RELOAD.get("{1}", plugin.getDescription().getName()));
-        }
+    @Permission(permission = "lce.command.reload")
+    public void reload (@NotNull BukkitCommandSender sender)
+    {
+        plugin.reload();
+        sender.sendMessage(Lang.RELOAD.get("{1}", plugin.getDescription().getName()));
     }
 }
