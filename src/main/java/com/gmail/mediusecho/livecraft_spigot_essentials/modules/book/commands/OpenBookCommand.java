@@ -20,13 +20,12 @@
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.commands;
 
 import com.gmail.mediusecho.fusion.api.BukkitCommandSender;
+import com.gmail.mediusecho.fusion.api.CommandListener;
+import com.gmail.mediusecho.fusion.api.PendingPlayer;
 import com.gmail.mediusecho.fusion.api.annotations.*;
-import com.gmail.mediusecho.fusion.api.commands.CommandListener;
-import com.gmail.mediusecho.fusion.api.commands.Sender;
 import com.gmail.mediusecho.livecraft_spigot_essentials.Lang;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.BookModule;
 import com.gmail.mediusecho.livecraft_spigot_essentials.util.BookUtil;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
@@ -35,27 +34,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Command(argument = "open", contexts = "#book @player")
+@SharedPermission("lce.command.modules.book.all")
 public class OpenBookCommand extends CommandListener {
 
     @Inject private BookModule bookModule;
 
     @Context(context = "#book")
-    @Permission(permission = "lce.command.modules.book.open.#book", permissionDeniedKey = "modules.book.messages.open-permission")
-    @SenderPolicy(Sender.PLAYER_ONLY)
+    @Permission(permission = "lce.command.modules.book.open.#book", deniedKey = "modules.book.messages.open-permission")
+    @Contract("player_only")
     public void openBook (@NotNull BukkitCommandSender sender, String bookName) {
         openBook(sender.getPlayer(), bookName);
     }
 
     @Context(context = "@player")
     @Permission(permission = "lce.command.modules.book.open.player")
-    public void openPlayerBook (@NotNull BukkitCommandSender sender, String bookName, Player player)
+    public void openPlayerBook (@NotNull BukkitCommandSender sender, String bookName, @NotNull PendingPlayer player)
     {
-        if (player == null || !player.isOnline())
+        if (!player.isValid())
         {
-            sender.sendMessage(Lang.PLAYER_ERROR.get("{1}", sender.getArgument(3)));
+            sender.sendMessage(Lang.PLAYER_ERROR.get("{1}", player.getName()));
             return;
         }
-        openBook(player, bookName);
+        openBook(player.getValue(), bookName);
     }
 
     @Context(context = "#book", providingContext = true)

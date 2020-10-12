@@ -20,21 +20,20 @@
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.poke.commands;
 
 import com.gmail.mediusecho.fusion.api.BukkitCommandSender;
+import com.gmail.mediusecho.fusion.api.CommandListener;
+import com.gmail.mediusecho.fusion.api.PendingPlayer;
 import com.gmail.mediusecho.fusion.api.annotations.*;
-import com.gmail.mediusecho.fusion.api.commands.CommandListener;
-import com.gmail.mediusecho.fusion.api.commands.Sender;
 import com.gmail.mediusecho.livecraft_spigot_essentials.Lang;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.poke.PokeData;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.poke.PokeModule;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Command(argument = "ignore", contexts = "#notIgnored", asContext = true)
 @Usage("modules.poke.messages.ignore-usage")
@@ -43,16 +42,17 @@ public class PokeIgnoreCommand extends CommandListener {
     @Inject private PokeModule pokeModule;
 
     @Default
-    @SenderPolicy(Sender.PLAYER_ONLY)
+    @Contract("player_only")
     @Permission(permission = "lce.command.modules.poke.ignore")
-    public void ignorePokes(@NotNull BukkitCommandSender sender, Player player)
+    public void ignorePokes(@NotNull BukkitCommandSender sender, @NotNull PendingPlayer pendingPlayer)
     {
-        if (player == null || !player.isOnline())
+        if (!pendingPlayer.isValid())
         {
-            sender.sendMessage(Lang.PLAYER_ERROR.get().replace("{1}", sender.getArgument(2)));
+            sender.sendMessage(Lang.PLAYER_ERROR.get().replace("{1}", pendingPlayer.getName()));
             return;
         }
 
+        Player player = pendingPlayer.getValue();
         PokeData pokeData = pokeModule.getPokeData(sender.getPlayer().getUniqueId());
         if (pokeData.ignorePlayer(player))
         {
@@ -72,19 +72,13 @@ public class PokeIgnoreCommand extends CommandListener {
         UUID id = sender.getPlayer().getUniqueId();
         PokeData pokeData = pokeModule.getPokeData(id);
         List<Player> ignoredPlayers = pokeData.getIgnoredPlayers();
-        List<String> results = new ArrayList<>();
+        List<String> players = Bukkit.getOnlinePlayers().stream()
+                .filter(player -> !ignoredPlayers.contains(player))
+                .map(Player::getName).collect(Collectors.toList());
 
-        for (Player player : Bukkit.getOnlinePlayers())
-        {
-            if (ignoredPlayers.contains(player)) {
-                continue;
-            }
-            results.add(player.getName());
-        }
-
-        if (results.isEmpty()) {
+        if (players.isEmpty()) {
             return Collections.singletonList("You are ignoring everyone");
         }
-        return results;
+        return players;
     }
 }

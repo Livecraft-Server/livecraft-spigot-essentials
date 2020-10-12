@@ -20,12 +20,10 @@
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.stack.commands;
 
 import com.gmail.mediusecho.fusion.api.BukkitCommandSender;
+import com.gmail.mediusecho.fusion.api.CommandListener;
 import com.gmail.mediusecho.fusion.api.annotations.*;
-import com.gmail.mediusecho.fusion.api.commands.CommandListener;
-import com.gmail.mediusecho.fusion.api.commands.Sender;
 import com.gmail.mediusecho.livecraft_spigot_essentials.Lang;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.stack.StackModule;
-import com.gmail.mediusecho.livecraft_spigot_essentials.util.StringUtil;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
@@ -36,7 +34,7 @@ public class StackCommand extends CommandListener {
 
     @Default
     @Permission(permission = "lce.command.modules.stack")
-    @SenderPolicy(Sender.PLAYER_ONLY)
+    @Contract("player_only")
     public void toggleStack (@NotNull BukkitCommandSender sender, boolean status)
     {
         Player player = sender.getPlayer();

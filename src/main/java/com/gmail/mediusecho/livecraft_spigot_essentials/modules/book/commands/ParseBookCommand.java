@@ -20,14 +20,10 @@
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.commands;
 
 import com.gmail.mediusecho.fusion.api.BukkitCommandSender;
-import com.gmail.mediusecho.fusion.api.annotations.Command;
-import com.gmail.mediusecho.fusion.api.annotations.Default;
-import com.gmail.mediusecho.fusion.api.annotations.Inject;
-import com.gmail.mediusecho.fusion.api.annotations.Permission;
-import com.gmail.mediusecho.fusion.api.commands.CommandListener;
+import com.gmail.mediusecho.fusion.api.CommandListener;
+import com.gmail.mediusecho.fusion.api.annotations.*;
 import com.gmail.mediusecho.livecraft_spigot_essentials.Lang;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.emote.EmoteModule;
-import com.gmail.mediusecho.livecraft_spigot_essentials.modules.markdown.MarkdownFormat;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.markdown.MarkdownModule;
 import com.gmail.mediusecho.livecraft_spigot_essentials.util.BookUtil;
 import org.bukkit.ChatColor;
@@ -41,6 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Command(argument = "parse")
+@SharedPermission("lce.command.modules.book.all")
 public class ParseBookCommand extends CommandListener {
 
     @Inject private EmoteModule emoteModule;

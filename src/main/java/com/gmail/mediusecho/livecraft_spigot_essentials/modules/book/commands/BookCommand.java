@@ -19,9 +19,8 @@
 
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.commands;
 
-
+import com.gmail.mediusecho.fusion.api.CommandListener;
 import com.gmail.mediusecho.fusion.api.annotations.Command;
-import com.gmail.mediusecho.fusion.api.commands.CommandListener;
 
 @Command(argument = "book")
 public class BookCommand extends CommandListener {
@@ -36,4 +35,5 @@ public class BookCommand extends CommandListener {
         registerCommand(new PreviewBookCommand());
         registerCommand(new ParseBookCommand());
     }
+
 }

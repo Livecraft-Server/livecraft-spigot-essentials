@@ -20,8 +20,9 @@
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.poke.commands;
 
 import com.gmail.mediusecho.fusion.api.BukkitCommandSender;
+import com.gmail.mediusecho.fusion.api.CommandListener;
+import com.gmail.mediusecho.fusion.api.PendingPlayer;
 import com.gmail.mediusecho.fusion.api.annotations.*;
-import com.gmail.mediusecho.fusion.api.commands.CommandListener;
 import com.gmail.mediusecho.livecraft_spigot_essentials.Lang;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.poke.PokeModule;
 import org.bukkit.entity.Player;
@@ -43,14 +44,15 @@ public class PokeCommand extends CommandListener {
 
     @Context(context = "@player")
     @Permission(permission = "lce.command.modules.poke.player")
-    public void pokePlayer (@NotNull BukkitCommandSender sender, Player player)
+    public void pokePlayer (@NotNull BukkitCommandSender sender, @NotNull PendingPlayer pendingPlayer)
     {
-        if (player == null || !player.isOnline())
+        if (!pendingPlayer.isValid())
         {
-            sender.sendMessage(Lang.PLAYER_ERROR.get().replace("{1}", sender.getArgument(1)));
+            sender.sendMessage(Lang.PLAYER_ERROR.get().replace("{1}", pendingPlayer.getName()));
             return;
         }
 
+        Player player = pendingPlayer.getValue();
         if (!sender.isPlayer())
         {
             pokeModule.poke(player);

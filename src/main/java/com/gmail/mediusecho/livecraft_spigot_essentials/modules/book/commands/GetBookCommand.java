@@ -20,9 +20,8 @@
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.commands;
 
 import com.gmail.mediusecho.fusion.api.BukkitCommandSender;
+import com.gmail.mediusecho.fusion.api.CommandListener;
 import com.gmail.mediusecho.fusion.api.annotations.*;
-import com.gmail.mediusecho.fusion.api.commands.CommandListener;
-import com.gmail.mediusecho.fusion.api.commands.Sender;
 import com.gmail.mediusecho.livecraft_spigot_essentials.Lang;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.BookModule;
 import org.bukkit.inventory.ItemStack;
@@ -30,13 +29,14 @@ import org.jetbrains.annotations.NotNull;
 
 @Command(argument = "get", contexts = "@book")
 @Usage("modules.book.messages.general-usage")
+@SharedPermission("lce.command.modules.book.all")
 public class GetBookCommand extends CommandListener {
 
     @Inject private BookModule bookModule;
 
     @Default
     @Permission(permission = "lce.command.modules.book.get.@book")
-    @SenderPolicy(Sender.PLAYER_ONLY)
+    @Contract("player_only")
     public void getBook (@NotNull BukkitCommandSender sender, String bookName)
     {
         if (!bookModule.bookExists(bookName))

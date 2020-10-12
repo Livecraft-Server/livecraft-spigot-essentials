@@ -20,15 +20,14 @@
 package com.gmail.mediusecho.livecraft_spigot_essentials.commands;
 
 import com.gmail.mediusecho.fusion.api.BukkitCommandSender;
-import com.gmail.mediusecho.fusion.api.MainCommand;
+import com.gmail.mediusecho.fusion.api.CommandListener;
 import com.gmail.mediusecho.fusion.api.annotations.*;
-import com.gmail.mediusecho.fusion.api.commands.CommandListener;
 import com.gmail.mediusecho.livecraft_spigot_essentials.Lang;
 import com.gmail.mediusecho.livecraft_spigot_essentials.LivecraftSpigotEssentials;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.jetbrains.annotations.NotNull;
 
-@MainCommand(defaults = "lce.command.*|lce.command.all")
+@InheritedPermission("lce.command.*|lce.command.all")
 @Command(argument = "lc")
 public class LCMainCommand extends CommandListener {
 
