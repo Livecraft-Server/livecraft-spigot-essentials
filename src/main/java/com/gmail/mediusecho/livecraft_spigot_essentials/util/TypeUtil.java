@@ -19,7 +19,6 @@
 
 package com.gmail.mediusecho.livecraft_spigot_essentials.util;
 
-import com.gmail.mediusecho.livecraft_spigot_essentials.LivecraftSpigotEssentials;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 

@@ -25,7 +25,6 @@ import com.gmail.mediusecho.livecraft_spigot_essentials.modules.Module;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.ping.groups.Group;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.ping.groups.RandomGroup;
 import com.gmail.mediusecho.livecraft_spigot_essentials.settings.Settings;
-import com.gmail.mediusecho.livecraft_spigot_essentials.settings.SettingsValue;
 import com.gmail.mediusecho.livecraft_spigot_essentials.util.MathUtil;
 import com.gmail.mediusecho.livecraft_spigot_essentials.util.StringUtil;
 import org.bukkit.*;

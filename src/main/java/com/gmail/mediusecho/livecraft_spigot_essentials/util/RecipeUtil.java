@@ -19,10 +19,7 @@
 
 package com.gmail.mediusecho.livecraft_spigot_essentials.util;
 
-import org.bukkit.inventory.Recipe;
-
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class RecipeUtil {
