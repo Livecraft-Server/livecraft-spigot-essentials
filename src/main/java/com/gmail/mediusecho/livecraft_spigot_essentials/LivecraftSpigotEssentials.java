@@ -104,26 +104,31 @@ public class LivecraftSpigotEssentials extends JavaPlugin implements LanguagePro
         messenger.registerIncomingPluginChannel(this, "lce:message", this);
         messenger.registerOutgoingPluginChannel(this, "lce:message");
 
-        BukkitCommandFramework bukkitCommandFramework = new BukkitCommandFramework(this, this);
-        bukkitCommandFramework.registerDependency(LivecraftSpigotEssentials.class, this);
-        bukkitCommandFramework.registerDependency(PokeModule.class, pokeModule);
-        bukkitCommandFramework.registerDependency(BookModule.class, bookModule);
-        bukkitCommandFramework.registerDependency(EmoteModule.class, emoteModule);
-        bukkitCommandFramework.registerDependency(RecipeModule.class, recipeModule);
+        BukkitCommandFramework commandFramework = new BukkitCommandFramework(this, this);
+        commandFramework.registerDependency(LivecraftSpigotEssentials.class, this);
+        commandFramework.registerDependency(PokeModule.class, pokeModule);
+        commandFramework.registerDependency(BookModule.class, bookModule);
+        commandFramework.registerDependency(EmoteModule.class, emoteModule);
+        commandFramework.registerDependency(RecipeModule.class, recipeModule);
+        commandFramework.registerDependency(StackModule.class, stackModule);
+        commandFramework.registerDependency(MarkdownModule.class, markdownModule);
 
-        bukkitCommandFramework.registerMainCommand(mainCommand);
         commandFramework.registerContext("@book", () -> new ArrayList<>(bookModule.getBookNames()));
+        commandFramework.registerContext("@craftable", new RecipeContext());
 
-        bukkitCommandFramework.registerDefaultLangKey(LangKey.UNKNOWN_COMMAND, Lang.UNKNOWN_COMMAND.key);
-        bukkitCommandFramework.registerDefaultLangKey(LangKey.NO_PERMISSION, Lang.NO_PERMISSION.key);
-        bukkitCommandFramework.registerDefaultLangKey(LangKey.PLAYER_ONLY, Lang.PLAYER_ONLY.key);
+        commandFramework.registerLangKey(LangKey.UNKNOWN_COMMAND, Lang.UNKNOWN_COMMAND.key);
+        commandFramework.registerLangKey(LangKey.NO_PERMISSION, Lang.NO_PERMISSION.key);
+        commandFramework.registerLangKey(LangKey.PLAYER_ONLY, Lang.PLAYER_ONLY.key);
+        commandFramework.registerLangKey(LangKey.UNKNOWN_COMMAND, Lang.UNKNOWN_COMMAND.key);
+
+        commandFramework.registerMainCommand(mainCommand);
+
+        promptTask = new PromptTask();
+        promptTask.runTaskTimer(this, 0L, 40L);
     }
 
     @Override
-    public void onDisable()
-    {
-
-    }
+    public void onDisable() { }
 
     @Override
     public String getLangTranslation(@NotNull String s) {
