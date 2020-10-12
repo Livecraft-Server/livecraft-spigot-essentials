@@ -112,8 +112,8 @@ public class LivecraftSpigotEssentials extends JavaPlugin implements LanguagePro
         bukkitCommandFramework.registerDependency(RecipeModule.class, recipeModule);
 
         bukkitCommandFramework.registerMainCommand(mainCommand);
+        commandFramework.registerContext("@book", () -> new ArrayList<>(bookModule.getBookNames()));
 
-        bukkitCommandFramework.registerContext("@book", new BookContext(bookModule));
         bukkitCommandFramework.registerDefaultLangKey(LangKey.UNKNOWN_COMMAND, Lang.UNKNOWN_COMMAND.key);
         bukkitCommandFramework.registerDefaultLangKey(LangKey.NO_PERMISSION, Lang.NO_PERMISSION.key);
         bukkitCommandFramework.registerDefaultLangKey(LangKey.PLAYER_ONLY, Lang.PLAYER_ONLY.key);
