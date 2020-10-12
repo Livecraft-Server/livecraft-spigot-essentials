@@ -119,7 +119,6 @@ public class LivecraftSpigotEssentials extends JavaPlugin implements LanguagePro
         commandFramework.registerLangKey(LangKey.UNKNOWN_COMMAND, Lang.UNKNOWN_COMMAND.key);
         commandFramework.registerLangKey(LangKey.NO_PERMISSION, Lang.NO_PERMISSION.key);
         commandFramework.registerLangKey(LangKey.PLAYER_ONLY, Lang.PLAYER_ONLY.key);
-        commandFramework.registerLangKey(LangKey.UNKNOWN_COMMAND, Lang.UNKNOWN_COMMAND.key);
 
         commandFramework.registerMainCommand(mainCommand);
 
