@@ -39,15 +39,15 @@ public class OpenBookCommand extends CommandListener {
 
     @Inject private BookModule bookModule;
 
-    @Context(context = "#book")
-    @Permission(permission = "lce.command.modules.book.open.#book", deniedKey = "modules.book.messages.open-permission")
+    @Context("#book")
+    @Permission(value = "lce.command.modules.book.open.#book", deniedKey = "modules.book.messages.open-permission")
     @Contract("player_only")
     public void openBook (@NotNull BukkitCommandSender sender, String bookName) {
         openBook(sender.getPlayer(), bookName);
     }
 
-    @Context(context = "@player")
-    @Permission(permission = "lce.command.modules.book.open.player")
+    @Context("@player")
+    @Permission("lce.command.modules.book.open.player")
     public void openPlayerBook (@NotNull BukkitCommandSender sender, String bookName, @NotNull PendingPlayer player)
     {
         if (!player.isValid())
@@ -58,7 +58,7 @@ public class OpenBookCommand extends CommandListener {
         openBook(player.getValue(), bookName);
     }
 
-    @Context(context = "#book", providingContext = true)
+    @Context(value = "#book", providingContext = true)
     public List<String> getBooks (@NotNull BukkitCommandSender sender)
     {
         if (sender.hasPermission("lce.command.*") || sender.hasPermission("lce.command.all")) {

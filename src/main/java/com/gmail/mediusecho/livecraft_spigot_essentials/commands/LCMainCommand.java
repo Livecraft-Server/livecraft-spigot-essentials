@@ -34,7 +34,7 @@ public class LCMainCommand extends CommandListener {
     @Inject private LivecraftSpigotEssentials plugin;
 
     @Default
-    @Permission(permission = "lce.command.lc")
+    @Permission("lce.command.lc")
     public void showInfo (@NotNull BukkitCommandSender sender)
     {
         PluginDescriptionFile descriptionFile = plugin.getDescription();
@@ -45,7 +45,7 @@ public class LCMainCommand extends CommandListener {
     }
 
     @Command(argument = "reload")
-    @Permission(permission = "lce.command.reload")
+    @Permission("lce.command.reload")
     public void reload (@NotNull BukkitCommandSender sender)
     {
         plugin.reload();

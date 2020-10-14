@@ -42,8 +42,8 @@ public class PokeCommand extends CommandListener {
         registerCommand(new PokeUnignoreCommand());
     }
 
-    @Context(context = "@player")
-    @Permission(permission = "lce.command.modules.poke.player")
+    @Context("@player")
+    @Permission("lce.command.modules.poke.player")
     public void pokePlayer (@NotNull BukkitCommandSender sender, @NotNull PendingPlayer pendingPlayer)
     {
         if (!pendingPlayer.isValid())

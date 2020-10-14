@@ -33,7 +33,7 @@ public class StackCommand extends CommandListener {
     @Inject private StackModule stackModule;
 
     @Default
-    @Permission(permission = "lce.command.modules.stack")
+    @Permission("lce.command.modules.stack")
     @Contract("player_only")
     public void toggleStack (@NotNull BukkitCommandSender sender, boolean status)
     {

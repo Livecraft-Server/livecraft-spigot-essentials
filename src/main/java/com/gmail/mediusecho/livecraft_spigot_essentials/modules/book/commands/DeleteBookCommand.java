@@ -34,7 +34,7 @@ public class DeleteBookCommand extends CommandListener {
     @Inject private BookModule bookModule;
 
     @Default
-    @Permission(permission = "lce.command.modules.book.delete")
+    @Permission("lce.command.modules.book.delete")
     public void deleteBook (@NotNull BukkitCommandSender sender, String bookName)
     {
         if (!bookModule.bookExists(bookName))

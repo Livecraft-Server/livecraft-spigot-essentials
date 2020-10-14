@@ -43,7 +43,7 @@ public class PokeIgnoreCommand extends CommandListener {
 
     @Default
     @Contract("player_only")
-    @Permission(permission = "lce.command.modules.poke.ignore")
+    @Permission("lce.command.modules.poke.ignore")
     public void ignorePokes(@NotNull BukkitCommandSender sender, @NotNull PendingPlayer pendingPlayer)
     {
         if (!pendingPlayer.isValid())
@@ -62,7 +62,7 @@ public class PokeIgnoreCommand extends CommandListener {
         sender.sendMessage(Lang.POKE_IGNORING.get().replace("{1}", player.getDisplayName()));
     }
 
-    @Context(context = "#notIgnored", providingContext = true)
+    @Context(value = "#notIgnored", providingContext = true)
     public List<String> getPlayersNotIgnored(@NotNull BukkitCommandSender sender)
     {
         if (!sender.isPlayer()) {

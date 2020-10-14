@@ -39,7 +39,7 @@ import java.util.List;
 public class PreviewBookCommand extends CommandListener {
 
     @Default
-    @Permission(permission = "lce.command.modules.book.preview")
+    @Permission("lce.command.modules.book.preview")
     @Contract("player_only")
     public void previewBook (@NotNull BukkitCommandSender sender)
     {

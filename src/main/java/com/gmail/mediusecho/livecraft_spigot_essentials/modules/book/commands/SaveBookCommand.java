@@ -52,7 +52,7 @@ public class SaveBookCommand extends CommandListener {
     }
 
     @Default
-    @Permission(permission = "lce.command.modules.book.save.@book")
+    @Permission("lce.command.modules.book.save.@book")
     @Contract("player_only")
     public void saveBook (@NotNull BukkitCommandSender sender, String bookName)
     {

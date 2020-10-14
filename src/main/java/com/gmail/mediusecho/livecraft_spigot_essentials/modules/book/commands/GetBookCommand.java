@@ -35,7 +35,7 @@ public class GetBookCommand extends CommandListener {
     @Inject private BookModule bookModule;
 
     @Default
-    @Permission(permission = "lce.command.modules.book.get.@book")
+    @Permission("lce.command.modules.book.get.@book")
     @Contract("player_only")
     public void getBook (@NotNull BukkitCommandSender sender, String bookName)
     {

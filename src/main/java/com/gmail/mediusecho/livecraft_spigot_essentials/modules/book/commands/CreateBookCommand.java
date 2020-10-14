@@ -35,7 +35,7 @@ public class CreateBookCommand extends CommandListener {
     @Inject private BookModule bookModule;
 
     @Default
-    @Permission(permission = "lce.command.modules.book.create")
+    @Permission("lce.command.modules.book.create")
     @Contract("player_only")
     public void createBook (@NotNull BukkitCommandSender sender, String bookName)
     {

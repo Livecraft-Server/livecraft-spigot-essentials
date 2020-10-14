@@ -42,7 +42,7 @@ public class PokeUnignoreCommand extends CommandListener {
 
     @Default
     @Contract("player_only")
-    @Permission(permission = "lce.command.modules.poke.unignore")
+    @Permission("lce.command.modules.poke.unignore")
     public void unignorePokes (@NotNull BukkitCommandSender sender, @NotNull PendingPlayer pendingPlayer)
     {
         if (!pendingPlayer.isValid())
@@ -61,7 +61,7 @@ public class PokeUnignoreCommand extends CommandListener {
         sender.sendMessage(Lang.POKE_NOT_IGNORING.get().replace("{1}", player.getDisplayName()));
     }
 
-    @Context(context = "#ignoring", providingContext = true)
+    @Context(value = "#ignoring", providingContext = true)
     public List<String> getPlayersNotIgnored(@NotNull BukkitCommandSender sender)
     {
         if (!sender.isPlayer()) {

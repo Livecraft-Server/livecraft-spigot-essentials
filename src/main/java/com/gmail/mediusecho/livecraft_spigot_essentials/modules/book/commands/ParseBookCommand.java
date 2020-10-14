@@ -44,7 +44,7 @@ public class ParseBookCommand extends CommandListener {
     @Inject private MarkdownModule markdownModule;
 
     @Default
-    @Permission(permission = "lce.command.modules.book.parse")
+    @Permission("lce.command.modules.book.parse")
     public void parseBook (@NotNull BukkitCommandSender sender)
     {
         Player player = sender.getPlayer();
