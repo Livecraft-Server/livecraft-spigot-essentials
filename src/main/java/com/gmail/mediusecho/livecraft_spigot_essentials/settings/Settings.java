@@ -99,4 +99,7 @@ public class Settings {
     public static final SettingsPointer STACK_WHITELISTED_ENTITIES_POINTER = new SettingsPointer("modules.stack.whitelisted-entities");
     public static final SettingsPointer STACK_WHITELISTED_WORLDS_POINTER = new SettingsPointer("modules.stack.whitelisted-worlds");
     public static final SettingsValue<Boolean> STACK_SHOW_PICKUP_AND_DROP_MESSAGES = new SettingsValue<>("modules.stack.show-pickup-and-drop-messages", true);
+    public static final SettingsValue<Boolean> STACK_CHICKEN_SLOW_FALLING = new SettingsValue<>("modules.stack.chicken-slow-falling", true);
+
+    public static final SettingsValue<Boolean> RECIPE_ENABLED = new SettingsValue<>("modules.recipe.enabled", true);
 }

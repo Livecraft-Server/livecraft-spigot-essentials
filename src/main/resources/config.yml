@@ -322,6 +322,12 @@ modules:
       ignore-usage: "&c[*] Missing player &7/poke ignore <player>"
       unignore-usage: "&c[*] Missing player &7/poke unignore <player>"
   #
+  recipe:
+    enabled: true
+    messages:
+      usage: "&c[*] Missing item"
+      no-recipe: "&c[*] Could not find a recipe for &e{1}"
+  #
   sleepvote:
     enabled: true
     worlds:

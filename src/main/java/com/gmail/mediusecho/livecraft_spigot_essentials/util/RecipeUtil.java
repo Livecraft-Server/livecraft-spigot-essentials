@@ -19,6 +19,9 @@
 
 package com.gmail.mediusecho.livecraft_spigot_essentials.util;
 
+import com.gmail.mediusecho.livecraft_spigot_essentials.modules.recipe.preview.*;
+import org.bukkit.inventory.*;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,5 +58,40 @@ public class RecipeUtil {
 
     private static void addShapedRecipe (int a, int b, Integer... slots) {
         shapedRecipeMap.put(intHash(a, b), slots);
+    }
+
+    public static RecipePreview getPreview (Recipe recipe)
+    {
+        if (recipe instanceof ShapelessRecipe) {
+            return new WorkbenchPreview(recipe);
+        }
+
+        if (recipe instanceof ShapedRecipe) {
+            return new WorkbenchPreview(recipe);
+        }
+
+        // The stonecutter inventory doesn't show items for some reason
+//        if (recipe instanceof StonecuttingRecipe) {
+//            return new StonecutterPreview((StonecuttingRecipe)recipe);
+//        }
+
+        if (recipe instanceof SmokingRecipe) {
+            return new SmokerPreview((SmokingRecipe)recipe);
+        }
+
+        // Can't change the title of smoker so this just shows the same view as the smoker recipe
+//        if (recipe instanceof CampfireRecipe) {
+//            return new CampfirePreview((CampfireRecipe)recipe);
+//        }
+
+        if (recipe instanceof BlastingRecipe) {
+            return new BlastFurnacePreview((BlastingRecipe)recipe);
+        }
+
+        if (recipe instanceof FurnaceRecipe) {
+            return new FurnacePreview((FurnaceRecipe)recipe);
+        }
+
+        return null;
     }
 }

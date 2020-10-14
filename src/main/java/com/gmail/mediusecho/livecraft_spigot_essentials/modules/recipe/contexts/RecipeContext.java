@@ -19,11 +19,9 @@
 
 package com.gmail.mediusecho.livecraft_spigot_essentials.modules.recipe.contexts;
 
-import com.gmail.mediusecho.fusion.api.commands.ContextProvider;
+import com.gmail.mediusecho.fusion.api.ContextProvider;
 import org.bukkit.Bukkit;
-import org.bukkit.inventory.Recipe;
-import org.bukkit.inventory.ShapedRecipe;
-import org.bukkit.inventory.ShapelessRecipe;
+import org.bukkit.inventory.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -37,16 +35,23 @@ public class RecipeContext implements ContextProvider {
     {
         recipes = new ArrayList<>();
 
+        List<Class<?>> recipeClasses = new ArrayList<>();
+        recipeClasses.add(ShapedRecipe.class);
+        recipeClasses.add(ShapelessRecipe.class);
+        recipeClasses.add(FurnaceRecipe.class);
+        recipeClasses.add(SmokingRecipe.class);
+        recipeClasses.add(BlastingRecipe.class);
+
         Iterator<Recipe> recipeIterator = Bukkit.getServer().recipeIterator();
         while (recipeIterator.hasNext())
         {
             Recipe recipe = recipeIterator.next();
-            if (recipe instanceof ShapelessRecipe) {
-                recipes.add(recipe.getResult().getType().toString());
-            }
 
-            if (recipe instanceof ShapedRecipe) {
-                recipes.add(recipe.getResult().getType().toString());
+            for (Class<?> recipeClass : recipeClasses)
+            {
+                if (recipeClass.isInstance(recipe)) {
+                    recipes.add(recipe.getResult().getType().toString().toLowerCase());
+                }
             }
         }
     }
