@@ -27,6 +27,8 @@ import com.gmail.mediusecho.livecraft_spigot_essentials.commands.LCMainCommand;
 import com.gmail.mediusecho.livecraft_spigot_essentials.config.CustomConfig;
 import com.gmail.mediusecho.livecraft_spigot_essentials.listeners.ConnectionListener;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.Module;
+import com.gmail.mediusecho.livecraft_spigot_essentials.modules.recipe.RecipeModule;
+import com.gmail.mediusecho.livecraft_spigot_essentials.modules.recipe.contexts.RecipeContext;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.sleepvote.SleepvoteModule;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.BookContext;
 import com.gmail.mediusecho.livecraft_spigot_essentials.modules.book.BookModule;
@@ -76,20 +78,23 @@ public class LivecraftSpigotEssentials extends JavaPlugin implements LanguagePro
 
         instance = this;
         mainCommand = new LCMainCommand();
-        pokeModule = new PokeModule(this);
+        PokeModule pokeModule = new PokeModule(this);
+        EmoteModule emoteModule = new EmoteModule(this);
+        BookModule bookModule = new BookModule(this);
+        RecipeModule recipeModule = new RecipeModule(this);
+        StackModule stackModule = new StackModule(this);
+        MarkdownModule markdownModule = new MarkdownModule(this);
         pingModule = new PingModule(this);
-        emoteModule = new EmoteModule(this);
-        bookModule = new BookModule(this, emoteModule);
-        bookModule = new BookModule(this);
 
         playerConfigMap = new HashMap<>();
         moduleList = new ArrayList<>();
         moduleList.add(pokeModule);
-        moduleList.add(new MarkdownModule(this));
+        moduleList.add(markdownModule);
         moduleList.add(new MotdModule(this));
         moduleList.add(new BroadcastModule(this));
         moduleList.add(new SleepvoteModule(this));
-        moduleList.add(new StackModule(this));
+        moduleList.add(stackModule);
+        moduleList.add(recipeModule);
         moduleList.add(emoteModule);
         moduleList.add(pingModule);
         moduleList.add(bookModule);
@@ -99,6 +104,8 @@ public class LivecraftSpigotEssentials extends JavaPlugin implements LanguagePro
         }
 
         connectionListener = new ConnectionListener(this);
+        getServer().getPluginManager().registerEvents(new BedListener(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerListener(), this);
 
         Messenger messenger = getServer().getMessenger();
         messenger.registerIncomingPluginChannel(this, "lce:message", this);
